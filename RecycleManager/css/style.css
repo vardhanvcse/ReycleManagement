@@ -1,0 +1,96 @@
+﻿.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1% 1%;
+}
+/*CSS for Header*/
+.header {
+    background-color: darkblue;
+    color: white;
+}
+.footer {
+    background-color: darkblue;
+    color: white;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul a {
+    color: darkblue;
+    text-decoration: none;
+    padding: 1%;
+}
+
+.menu ul a:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.menu ul a li {
+    display: inline;
+}
+
+footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+body {
+    margin: 0; /* Remove default margin from the body */
+    padding: 0; /* Remove default padding from the body */
+    position: relative; /* Needed for absolute positioning */
+}
+
+.dropdown {
+    position: absolute; /* Position relative to the body */
+    top: 10px; /* Adjusts the top margin */
+    right: 10px; /* Adjusts the right margin */
+    display: inline-block; /* Makes the dropdown container inline */
+}
+
+.login-button {
+    background-image: url('path_to_your_image.png'); /* Replace with your image path */
+    background-size: contain; /* Ensures the image fits within the button */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center left; /* Aligns the image to the left, centered vertically */
+    padding-left: 40px; /* Adds space on the left side for the image */
+    padding: 10px 20px; /* Adds padding around the text */
+    border: none; /* Removes default border */
+    color: black; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    background: #76b5c5
+}
+
+.dropdown-content {
+    display: none; /* Hide the dropdown content by default */
+    position: absolute; /* Position it relative to the dropdown container */
+    top: 100%; /* Align it directly below the button */
+    right: 0; /* Align it with the right edge of the button */
+    background-color: #fff; /* Background color of the dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Optional shadow for better visibility */
+    z-index: 1; /* Ensures the dropdown is on top */
+}
+
+.dropdown-content a {
+    color: #000; /* Text color */
+    padding: 12px 16px; /* Padding inside dropdown items */
+    text-decoration: none; /* Removes underline from links */
+    display: block; /* Makes the links fill the dropdown width */
+}
+
+.dropdown-content a:hover {
+        background-color: #ddd; /* Background color on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown content on hover */
+}
+
+.dropdown:hover .login-button {
+    background-color: #007BFF; /* Change button color on hover */
+}

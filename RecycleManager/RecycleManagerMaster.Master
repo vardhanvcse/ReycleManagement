@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RecycleManagerMaster.master.cs" Inherits="RecycleManager.RecycleManagerMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Recycle Manager</title>
+     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+      <header class="header">
+          <div class="wrapper">
+              <h1>Recycle Management System</h1>
+          </div>  
+       </header>   
+    
+    <form id="form1" runat="server">
+        <div class="dropdown">
+            <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log In" OnClick="btnLogin_Click" />
+            <div class="dropdown-content">
+                <a href="Login.aspx">Login</a>
+                <a href="SignOut.aspx">Sign Out</a>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="DefaultPageContent" runat="server">                
+            </asp:ContentPlaceHolder>
+             <asp:ContentPlaceHolder ID="LoginPageContent" runat="server">                
+             </asp:ContentPlaceHolder>
+        </div>
+    </form>
+        <footer class="footer" style="height:50px">
+            <div class="wrapper" >
+                <p>&copy; Recycle Management System. All rights reserved 2024.</p>
+            </div>
+        </footer>
+</body>
+</html>
