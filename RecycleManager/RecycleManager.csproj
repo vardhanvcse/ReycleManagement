@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css" />
+    <Content Include="dbscript\dbscript.sql" />
     <Content Include="Default.aspx" />
     <Content Include="images\RecycleManagement.jpg" />
     <Content Include="images\RecycleManagementFlow.jpg" />
@@ -79,6 +80,7 @@
     <Compile Include="BusinessAccess\MaterailBAL.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="DataAccess\DBTypeConverter.cs" />
+    <Compile Include="DataAccess\LoginDAL.cs" />
     <Compile Include="DataAccess\MaterialDAL.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -88,6 +90,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="helpers\Enums.cs" />
+    <Compile Include="helpers\UserLogin.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

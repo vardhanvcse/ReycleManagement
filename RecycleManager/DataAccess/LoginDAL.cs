@@ -2,13 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Web;
 
 namespace RecycleManager.DataAccess
 {
-    public class MaterialDAL
+    public class LoginDAL
     {
         private DAL dataAccess = new DAL();
-        #region Add Material
+
         public bool AddMaterial(Material material)
         {
             bool isSuccess = false;
@@ -29,26 +31,5 @@ namespace RecycleManager.DataAccess
             }
             return isSuccess;
         }
-
-        public Tuple<DataSet, bool> GetMaterials(int materialId)
-        {
-            Tuple<DataSet, bool> resultStatus = null;
-
-            try
-            {
-                List<Tuple<string, object, SqlDbType>> parameters = new List<Tuple<string, object, SqlDbType>>
-                {
-                    new Tuple<string, object, SqlDbType>("@material_id",materialId,SqlDbType.Int),
-                };
-                resultStatus = dataAccess.GetDataSet("Material_Get", "Material", parameters);
-            }
-            catch { }
-            finally
-            {
-
-            }
-            return resultStatus;
-        }
-        #endregion        
     }
 }

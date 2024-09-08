@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace RecycleManager.helpers
+﻿namespace RecycleManager.helpers
 {
     public class Enums
     {
