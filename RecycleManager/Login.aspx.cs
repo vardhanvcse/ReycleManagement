@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecycleManager.helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace RecycleManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session[Enums.WebAttributes.LoginSession.ToString()] != null)
+            {
+                Response.Redirect("");
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
