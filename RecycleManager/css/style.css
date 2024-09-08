@@ -3,6 +3,24 @@
     margin: 0 auto;
     padding: 1% 1%;
 }
+
+.bordered-list {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.bordered-list li {
+    border: 1px solid #ddd; /* Adds a border around each list item */
+    padding: 10px; /* Adds some padding inside each list item */
+    margin-bottom: 5px; /* Adds space between list items */
+    background-color: #f8f9fa; /* Optional: background color */
+}
+
+.bordered-list li:hover {
+    background-color: #e9ecef; /* Changes background color on hover */
+}
+
 /*CSS for Header*/
 .header {
     background-color: darkblue;
@@ -93,4 +111,15 @@ body {
 
 .dropdown:hover .login-button {
     background-color: #007BFF; /* Change button color on hover */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
 }

@@ -11,7 +11,6 @@ namespace RecycleManager
             {
                 Response.Redirect("Login.aspx");
             }
-
         }
     }
 }
