@@ -18,12 +18,12 @@ namespace RecycleManager.DataAccess
             bool execStatus = false;
             try
             {
-                var cmd = GetCommandWithParameters(procedureName, parameters);
-                cmd.Connection.Open();
+                var cmd = GetCommandWithParameters(procedureName, parameters);               
                 var res = cmd.ExecuteScalar();
                 execStatus = ((int)res) > 0;
             }
             catch { }
+            finally { conn.Close(); }
             return execStatus;
         }
         public Tuple<DataSet, bool> GetDataSet(string procedureName, string tableName, List<Tuple<string, object, SqlDbType>> parameters)
@@ -38,6 +38,7 @@ namespace RecycleManager.DataAccess
                 execStatus = true;
             }
             catch { }
+            finally { conn.Close(); }
             return new Tuple<DataSet, bool>(ds, execStatus);
         }
 
@@ -45,6 +46,7 @@ namespace RecycleManager.DataAccess
         {
             SqlCommand cmd = conn.CreateCommand();
             cmd.Connection = conn;
+            cmd.Connection.Open();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = procedureName;
 
