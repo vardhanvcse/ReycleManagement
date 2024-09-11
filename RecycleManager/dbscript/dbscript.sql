@@ -279,3 +279,23 @@ USE [master]
 GO
 ALTER DATABASE [RecycleManagement] SET  READ_WRITE 
 GO
+
+INSERT INTO [dbo].[user]
+           ([user_name]
+           ,[user_mail_id]
+           ,[phone_num]
+           ,[address])
+     VALUES
+           ('admin'
+           ,'s566760@nwmissouri.edu'
+           ,'6605288733'
+           ,'NW MSU')
+GO
+
+
+INSERT INTO user_login
+           
+     VALUES
+           (1
+           ,'password')
+GO
