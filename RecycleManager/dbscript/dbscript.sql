@@ -299,3 +299,23 @@ INSERT INTO user_login
            (1
            ,'password')
 GO
+
+insert into material values('FoodWaste','food waste');
+insert into material values('Aluminum','Aluminum waste');
+insert into material values('Cardboard','Cardboard waste');
+insert into material values('Glass','Glass waste');
+insert into material values('Metal-Cans','metal Cans waste');
+insert into material values('Metal-Scrap','Metal Scrap waste');
+
+insert into material values('Paper-Books','Paper-Books waste');
+insert into material values('Paper-Mixed','Paper-Mixed waste');
+insert into material values('Paper-Newspaper','Paper-Newspaper waste');
+insert into material values('Paper-White','Paper-White waste');
+
+insert into material values('Plastic-PET','Plastic-PET waste');
+insert into material values('Plastic-HDPEColored','Plastic-HDPEColored waste');
+insert into material values('Plastic-HDPENatural','Plastic-HDPENatural waste');
+Go
+
+
+
