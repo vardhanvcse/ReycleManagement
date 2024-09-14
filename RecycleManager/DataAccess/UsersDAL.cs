@@ -24,6 +24,8 @@ namespace RecycleManager.DataAccess
                     new Tuple<string, object, SqlDbType>("@user_mail_id",user.User_Mail_Id,SqlDbType.NVarChar),
                     new Tuple<string, object, SqlDbType>("@phone_num",user.Phone_Num,SqlDbType.NVarChar),
                     new Tuple<string, object, SqlDbType>("@address",user.Address,SqlDbType.NVarChar),
+                     new Tuple<string, object, SqlDbType>("@user_password",user.Password,SqlDbType.NVarChar),
+                      new Tuple<string, object, SqlDbType>("@role_name",user.Role_Name,SqlDbType.NVarChar),
                 };
                 isSuccess = dataAccess.ExecuteNonQuery("User_Add", parameters);
             }

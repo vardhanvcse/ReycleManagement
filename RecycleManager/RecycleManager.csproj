@@ -93,11 +93,13 @@
     </Compile>
     <Compile Include="BusinessAccess\LoginBAL.cs" />
     <Compile Include="BusinessAccess\MaterailBAL.cs" />
+    <Compile Include="BusinessAccess\RolesBAL.cs" />
     <Compile Include="BusinessAccess\UserBAL.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="DataAccess\DBTypeConverter.cs" />
     <Compile Include="DataAccess\LoginDAL.cs" />
     <Compile Include="DataAccess\MaterialDAL.cs" />
+    <Compile Include="DataAccess\RolesDAL.cs" />
     <Compile Include="DataAccess\UsersDAL.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -116,6 +118,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecycleManagementDesk.aspx.cs">
