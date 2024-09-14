@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [RecycleManagement]    Script Date: 9/13/2024 10:31:31 AM ******/
+/****** Object:  Database [RecycleManagement]    Script Date: 9/13/2024 10:36:21 PM ******/
 CREATE DATABASE [RecycleManagement]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,18 +82,7 @@ ALTER DATABASE [RecycleManagement] SET QUERY_STORE (OPERATION_MODE = READ_WRITE,
 GO
 USE [RecycleManagement]
 GO
-/****** Object:  Table [dbo].[emp]    Script Date: 9/13/2024 10:32:12 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[emp](
-	[empName] [varchar](20) NULL,
-	[workinhDate] [date] NULL,
-	[Workinghour] [varchar](20) NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[land_fill_expense]    Script Date: 9/13/2024 10:32:18 AM ******/
+/****** Object:  Table [dbo].[land_fill_expense]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +99,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[material]    Script Date: 9/13/2024 10:32:18 AM ******/
+/****** Object:  Table [dbo].[material]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,18 +114,7 @@ CREATE TABLE [dbo].[material](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[mcnemp]    Script Date: 9/13/2024 10:32:18 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[mcnemp](
-	[empName] [varchar](20) NULL,
-	[workinhDate] [date] NULL,
-	[Workinghour] [varchar](20) NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[recycling_center]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[recycling_center]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -152,7 +130,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[recycling_collection]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[recycling_collection]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -168,7 +146,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[recycling_revenue]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[recycling_revenue]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -186,7 +164,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[roles]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[roles]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -201,7 +179,7 @@ CREATE TABLE [dbo].[roles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[user]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,7 +196,7 @@ CREATE TABLE [dbo].[user](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user_login]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[user_login]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -228,7 +206,7 @@ CREATE TABLE [dbo].[user_login](
 	[user_password] [nvarchar](15) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user_role]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[user_role]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -238,7 +216,7 @@ CREATE TABLE [dbo].[user_role](
 	[role_id] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[vehicle]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[vehicle]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -250,10 +228,43 @@ CREATE TABLE [dbo].[vehicle](
 	[model] [nvarchar](50) NULL,
 	[purchase_date] [date] NULL,
 	[starting_milage] [decimal](4, 2) NULL,
-	[vehicle_weight_id] [int] NULL
+	[vehicle_weight_id] [int] NULL,
+	[vehicle_type] [int] NULL,
+	[vehicle_description] [int] NULL,
+	[excempt_law_enforcement] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[vehicle_weights]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  Table [dbo].[vehicle_class]    Script Date: 9/13/2024 10:36:21 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[vehicle_class](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[class] [nvarchar](100) NULL,
+	[class_description] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[vehicle_types]    Script Date: 9/13/2024 10:36:21 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[vehicle_types](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[vehicle_type] [nvarchar](30) NULL,
+	[vehicle_description] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[vehicle_weights]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,10 +300,7 @@ REFERENCES [dbo].[user] ([user_id])
 GO
 ALTER TABLE [dbo].[user_role] CHECK CONSTRAINT [FK_user_role_user]
 GO
-ALTER TABLE [dbo].[vehicle]  WITH CHECK ADD FOREIGN KEY([vehicle_weight_id])
-REFERENCES [dbo].[vehicle_weights] ([id])
-GO
-/****** Object:  StoredProcedure [dbo].[Get_UserID_By_Name]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Get_UserID_By_Name]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +327,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Material_Add]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Material_Add]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -340,7 +348,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Material_Delete]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Material_Delete]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -360,7 +368,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Material_Get]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Material_Get]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -387,7 +395,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Material_Modify]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Material_Modify]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -410,7 +418,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Verify_User_Login]    Script Date: 9/13/2024 10:32:19 AM ******/
+/****** Object:  StoredProcedure [dbo].[Verify_User_Login]    Script Date: 9/13/2024 10:36:21 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -484,3 +492,18 @@ Go
 CREATE LOGIN AdminLOGIN WITH PASSWORD = 'PasswordCheck@1'
 GO
 
+insert into vehicle_weights values('low_weight','weight <=8,500 pounds')
+insert into vehicle_weights values('heavy_weight','weight >8,500 pounds')
+Go
+insert into vehicle_types values('Gasoline','Gasoline run vehicle')
+insert into vehicle_types values('Diesel','Diesel run vehicle')
+insert into vehicle_types values('Hybrid','Hybrid vehicle')
+insert into vehicle_types values('E85','E85 vehicle')
+insert into vehicle_types values('CNG','CNG run vehicle')
+insert into vehicle_types values('Propane','Propane run vehicle')
+insert into vehicle_types values('Electric','Electric run vehicle')
+GO
+
+insert into vehicle_class values('Cars and Station Wagons','Cars and Station Wagons')
+insert into vehicle_class values('LDTs, Vans, SUVs','LDTs, Vans and SUVs')
+GO
