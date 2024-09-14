@@ -1,4 +1,5 @@
-﻿using RecycleManager.helpers;
+﻿using RecycleManager.BusinessAccess;
+using RecycleManager.helpers;
 using System;
 
 namespace RecycleManager
@@ -11,6 +12,9 @@ namespace RecycleManager
             {
                 Response.Redirect("Login.aspx");
             }
+
+            UserBAL userBal = new UserBAL();
+            lblUsers.Text = userBal.GetUsers(-100).Count.ToString();
         }
     }
 }

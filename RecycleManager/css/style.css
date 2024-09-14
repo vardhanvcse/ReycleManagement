@@ -123,3 +123,14 @@ p {
     font-size: 16px;
     line-height: 1.6;
 }
+.register-user p {
+    text-align: justify;
+    padding: 1%;
+    line-height: 30px;
+    color: #394d6d;
+}
+.register-user h3 {
+    text-align: center;
+    margin-bottom: 2%;
+    text-decoration: underline;
+}

@@ -6,44 +6,56 @@
 <head runat="server">
     <title>Recycle Admin</title>
      <link rel="stylesheet" type="text/css" href="css/style.css"/>  
-     
 </head>
 <body>
     <header class="header">
     <div class="wrapper">
         <h1>Recycle Management Desk</h1>
     </div>  
- </header>  
-     <nav class="menu">
-     <div class="wrapper">
-         <ul >
-             <a href="ResourceManagement.aspx"><li>Resource Management</li></a>
-             <a href="WasteManagement.aspx"><li>Waste Management</li></a>
-             <a href="RevenueManagement.aspx"><li>RevenueManagement</li></a>
-             <a href="Reports.aspx"><li>Reports</li></a>            
-         </ul>
-     </div>
- </nav>
-    <form id="form1" runat="server">
-          <div>
-            <h1>Resource & Waste Management System</h1>
+ </header>      
+           <div >           
+            <div style="color:purple">
+                <h3>Dashboard</h3>
+                
+                <div >
+                    <table width="500" ><tr><td width="25%">
+                    <div  style="text-align: center">
+                         <h1>
+                             <asp:Label ForeColor="Purple" ID="lblUsers" runat="server" Text="0"></asp:Label>
+                         </h1>
+                        <span style="color:blue">Users</span><br />
+                        <a href="UserManagement.aspx">
+                            <button type="button"  >View All</button>
+                        </a>
+                    </div>
+                    </td><td width="35%">
+                    <div  style="text-align: center">
+                         <h1>
+                             <asp:Label ForeColor="Purple" ID="lblVehicles" runat="server" Text="0"></asp:Label>
+                         </h1>
+                        <span style="color:blue">Vehicles</span><br />
+                        <a href="VehiclesManagement.aspx">
+                            <button type="button" >View All</button>
+                        </a>
+                    </div>
+                        </td><td width="40%">
+                    <div  style="text-align: center">
+                        <br/><br/><br />
+                        <h1> <asp:Label ForeColor="Purple" ID="Label1" runat="server" Text=" "></asp:Label></h1>
+                        <span style="color:blue">Data Management</span><br />
+                        <a href="DataManagement.aspx">
+                            <button type="button"  >Data Entry Console</button>
+                        </a>
+                    </div>
 
-            <h2>Resource Maintenance System</h2>
-            <p>- Manage users and access</p>
-            <p>- Oversee recycling center operations: employee details, vehicle management, and maintenance costs</p>
+                    </td></tr>
+                    </table>
 
-            <h2>Waste Management</h2>
-            <p>- Categorize and track waste materials</p>
-            <p>- Monitor daily trash input and stock levels with checkpoints</p>
-
-            <h2>Revenue Management</h2>
-            <p>- Track cash flow and revenue from trash sales</p>
-            <p>- Update financial checkpoints for accurate revenue tracking</p>
-
-            <h2>Reports</h2>
-            <p>- Generate monthly reports on waste types, total weights, and recycling rates</p>
+                </div>
+            </div>
+                
         </div>
-    </form>
+
       <footer class="footer" style="height:50px">
           <div class="wrapper" >
               <p>&copy; Recycle Management System. All rights reserved 2024.</p>
