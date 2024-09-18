@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUser.aspx" />
+    <Content Include="AddVehicle.aspx" />
     <Content Include="css\style.css" />
     <Content Include="dbscript\dbscript.sql" />
     <Content Include="Default.aspx" />
@@ -80,6 +81,7 @@
     <Content Include="ResourceManagement.aspx" />
     <Content Include="RevenueManagement.aspx" />
     <Content Include="UserManagement.aspx" />
+    <Content Include="VehiclesManagement.aspx" />
     <Content Include="WasteManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -91,16 +93,25 @@
     <Compile Include="AddUser.aspx.designer.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddVehicle.aspx.cs">
+      <DependentUpon>AddVehicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVehicle.aspx.designer.cs">
+      <DependentUpon>AddVehicle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessAccess\LoginBAL.cs" />
     <Compile Include="BusinessAccess\MaterailBAL.cs" />
     <Compile Include="BusinessAccess\RolesBAL.cs" />
     <Compile Include="BusinessAccess\UserBAL.cs" />
+    <Compile Include="BusinessAccess\VehicleBAL.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="DataAccess\DBTypeConverter.cs" />
     <Compile Include="DataAccess\LoginDAL.cs" />
     <Compile Include="DataAccess\MaterialDAL.cs" />
     <Compile Include="DataAccess\RolesDAL.cs" />
     <Compile Include="DataAccess\UsersDAL.cs" />
+    <Compile Include="DataAccess\VehicleDAL.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,6 +131,7 @@
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecycleManagementDesk.aspx.cs">
       <DependentUpon>RecycleManagementDesk.aspx</DependentUpon>
@@ -155,6 +167,13 @@
     </Compile>
     <Compile Include="UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehiclesManagement.aspx.cs">
+      <DependentUpon>VehiclesManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehiclesManagement.aspx.designer.cs">
+      <DependentUpon>VehiclesManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="WasteManagement.aspx.cs">
       <DependentUpon>WasteManagement.aspx</DependentUpon>
