@@ -33,22 +33,13 @@ namespace RecycleManager
         protected global::System.Web.UI.WebControls.Label lblResult;
 
         /// <summary>
-        /// lblVehicleId control.
+        /// txtVehicleId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicleId;
-
-        /// <summary>
-        /// btnGetVehicleId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGetVehicleId;
+        protected global::System.Web.UI.WebControls.Label txtVehicleId;
 
         /// <summary>
         /// txtYear control.
