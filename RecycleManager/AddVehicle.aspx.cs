@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using RecycleManager.helpers;
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace RecycleManager
 {
@@ -11,13 +8,14 @@ namespace RecycleManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session[Enums.WebAttributes.LoginSession.ToString()] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
-        }
-
-        protected void btnGetVehicleId_Click(object sender, EventArgs e)
-        {
-            lblVehicleId.Text = Guid.NewGuid().ToString();
-        }
+            if (!Page.IsPostBack)
+                txtVehicleId.Text = Guid.NewGuid().ToString();
+        }       
 
         protected void Unnamed_SelectionChanged(object sender, EventArgs e)
         {
