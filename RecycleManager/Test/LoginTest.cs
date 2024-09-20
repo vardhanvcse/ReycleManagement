@@ -7,10 +7,9 @@ using NUnit;
 using NUnit.Framework;
 namespace RecycleManager.Test
 {
-    [TestCase]
     public class LoginTest
     {
-        [Test]
+      
         public void LoginTestCheck() { 
         }
     }
