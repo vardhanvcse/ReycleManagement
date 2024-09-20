@@ -197,3 +197,24 @@ p {
         margin: 0.5%;
         width: 75%;
     }
+
+/* Style for the calendar icon */
+.calendar-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+/* Hide the calendar control by default */
+#calendarContainer {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+/* Close button style */
+.close-btn {
+    cursor: pointer;
+    color: red;
+    font-size: 14px;
+}
