@@ -31,7 +31,7 @@
           <span class="name">Vehicle Id</span>
           <asp:Label ID="txtVehicleId" runat="server" Width="350px" placeholder="User Name"></asp:Label><br /><br />
           <span class="name">Year</span>
-          <asp:TextBox ID="txtYear" runat="server" placeholder="Make Year"></asp:TextBox><br />
+          <asp:TextBox ID="txtYear" runat="server" TextMode="Number" placeholder="Make Year"></asp:TextBox><br />
           <asp:RequiredFieldValidator ControlToValidate ="txtYear" runat="server" ErrorMessage="*" ForeColor="Red" Text="Add Make year for Vehicle" /><br />
                     
           <span class="name">Make</span>
@@ -51,14 +51,33 @@
                 <span class="close-btn" onclick="closeCalendar()">Close</span>
                </div>
            <br />
-          <asp:RequiredFieldValidator ControlToValidate ="txtPurchaseDate" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Vehicle Purchase Date" /><br />
+          <asp:RequiredFieldValidator ControlToValidate ="txtPurchaseDate" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Vehicle Purchase Date" /><br />          
+        <span class="name">Starting Milage</span>
+        <asp:TextBox ID="txtStartingMilageGallon" TextMode="Number" runat="server" placeholder="Starting Milage per Gallon"></asp:TextBox><br />
+        <asp:RequiredFieldValidator ControlToValidate ="txtStartingMilageGallon" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Starting Milage per Gallon" /><br />
+             
+        <span class="name">Vehicle Weight</span>
+       <asp:DropDownList ID="ddlVehicleWeight" runat="server" Height="28px" Width="300px" />                      
+       <br /><br />
           
-          </form>
-            </div>    
+        <span class="name">Vehicle Type</span>
+        <asp:DropDownList ID="ddlVehicleType" runat="server" Height="28px" Width="300px" />                      
+        <br />
+          <br />
+        <span class="name">Vehicle Class</span>
+        <asp:DropDownList ID="ddlVehicleClass" runat="server" Height="28px" Width="300px" />                      
+        <br /> <br />
 
+           <span class="name">Exempt (Law Enforcement or > 8,500 pounds)</span>
+           <asp:CheckBox ID="chkIsExcemptOfLawEnforcement" runat="server" />
+          <br /><br />
+           <asp:Button ID="btnAddVehicle" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddVehicle_Click" Text="Add Vehicle" Width="111px" />
+            <br />
+
+      </form>
+            </div>    
          </div>
-         </div>
-            
+         </div>            
             <footer class="footer" style="height:50px">
             <div class="wrapper" >
                 <p>&copy; Recycle Management System. All rights reserved 2024.</p>

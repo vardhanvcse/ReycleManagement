@@ -19,8 +19,8 @@ namespace RecycleManager.DataAccess
             try
             {
                 var cmd = GetCommandWithParameters(procedureName, parameters);               
-                var res = cmd.ExecuteScalar();
-                execStatus = ((int)res) > 0;
+                var res = cmd.ExecuteNonQuery();
+                execStatus = true;
             }
             catch { }
             finally { conn.Close(); }

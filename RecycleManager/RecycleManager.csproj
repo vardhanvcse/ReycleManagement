@@ -161,6 +161,9 @@
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleClass.cs" />
+    <Compile Include="Models\VehicleTypes.cs" />
+    <Compile Include="Models\VehicleWeights.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecycleManagementDesk.aspx.cs">
       <DependentUpon>RecycleManagementDesk.aspx</DependentUpon>

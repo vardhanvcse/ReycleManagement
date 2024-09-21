@@ -27,7 +27,7 @@ namespace RecycleManager.DataAccess
                     new Tuple<string, object, SqlDbType>("@starting_milage",vehicle.Starting_Milage,SqlDbType.Decimal),
                     new Tuple<string, object, SqlDbType>("@vehicle_weight",vehicle.Vehicle_Weight,SqlDbType.NVarChar),
                     new Tuple<string, object, SqlDbType>("@vehicle_type",vehicle.Vehicle_Type,SqlDbType.NVarChar),
-                    new Tuple<string, object, SqlDbType>("@vehicle_class",vehicle.Vehicle_Descripton,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@vehicle_class",vehicle.Vehicle_Class,SqlDbType.NVarChar),
                     new Tuple<string, object, SqlDbType>("@IsExcempt",vehicle.IsExcempt,SqlDbType.Bit)
                 };
                 isSuccess = dataAccess.ExecuteNonQuery("Vehicle_Add", parameters);
@@ -42,7 +42,7 @@ namespace RecycleManager.DataAccess
         #endregion
 
         #region Get Total Vehicles
-        public Tuple<DataSet, bool> GetVehicles(int vehicle_id)
+        public Tuple<DataSet, bool> GetVehicles(string vehicle_id)
         {
             Tuple<DataSet, bool> resultStatus = null;
 
@@ -63,5 +63,52 @@ namespace RecycleManager.DataAccess
         }
         #endregion
 
+        public Tuple<DataSet, bool> GetVehicleWeights()
+        {
+            Tuple<DataSet, bool> resultStatus = null;
+
+            try
+            {                
+                resultStatus = dataAccess.GetDataSet("Vehicle_Weights_Get", "Vehicle_Weights", null);
+            }
+            catch { }
+            finally
+            {
+
+            }
+            return resultStatus;
+        }
+
+        public Tuple<DataSet, bool> GetVehicleTypes()
+        {
+            Tuple<DataSet, bool> resultStatus = null;
+
+            try
+            {
+                resultStatus = dataAccess.GetDataSet("Vehicle_Types_Get", "Vehicle_Types", null);
+            }
+            catch { }
+            finally
+            {
+
+            }
+            return resultStatus;
+        }
+
+        public Tuple<DataSet, bool> GetVehicleClasses()
+        {
+            Tuple<DataSet, bool> resultStatus = null;
+
+            try
+            {
+                resultStatus = dataAccess.GetDataSet("Vehicle_Class_Get", "Vehicle_Class", null);
+            }
+            catch { }
+            finally
+            {
+
+            }
+            return resultStatus;
+        }
     }
 }
