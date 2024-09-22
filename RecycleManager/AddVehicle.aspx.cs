@@ -24,12 +24,7 @@ namespace RecycleManager
                 bal.GetVehicleWeights().ForEach(x => ddlVehicleWeight.Items.Add(x.WeightDescription));
                 bal.GetVehicleClasses().ForEach(x => ddlVehicleClass.Items.Add(x.Vehicle_Class));
             }
-        }       
-
-        protected void Unnamed_SelectionChanged(object sender, EventArgs e)
-        {
-           txtPurchaseDate.Text =  cldPurchaseDate.SelectedDate.ToString();
-        }
+        }             
 
         protected void btnAddVehicle_Click(object sender, EventArgs e)
         {

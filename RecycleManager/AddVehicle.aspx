@@ -9,16 +9,16 @@
       <header class="header">
           <div class="wrapper">
               <h1>Recycle Management System</h1>
-          </div>  
-           <script type="text/javascript">
-            function showCalendar() {
-                document.getElementById('calendarContainer').style.display = 'block';
-            }
+          </div>       
+                 <script type="text/javascript">
+        function showCalendar() {
+            document.getElementById('calendarContainer').style.display = 'block';
+        }
 
-            function closeCalendar() {
-                document.getElementById('calendarContainer').style.display = 'none';
-            }
-    </script>
+        function closeCalendar() {
+            document.getElementById('calendarContainer').style.display = 'none';
+        }
+                 </script>
        </header>   
 
         <div class="main">
@@ -43,14 +43,8 @@
           <asp:RequiredFieldValidator ControlToValidate ="txtModel" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Vehicle Model" /><br />
           
           <span class="name">Purchase Date</span>
-          <asp:TextBox ID="txtPurchaseDate" runat="server" placeholder="Vehicle Purchase Date" onfocus="showCalendar()"></asp:TextBox>
-           <div id="calendarContainer">
-             <asp:Calendar runat="server" OnSelectionChanged="Unnamed_SelectionChanged" ID="cldPurchaseDate" />
-                 <br />
-                <!-- Close Button -->
-                <span class="close-btn" onclick="closeCalendar()">Close</span>
-               </div>
-           <br />
+          <asp:TextBox ID="txtPurchaseDate" runat="server" placeholder="Vehicle Purchase Date" TextMode="Date"></asp:TextBox>
+          <br />
           <asp:RequiredFieldValidator ControlToValidate ="txtPurchaseDate" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Vehicle Purchase Date" /><br />          
         <span class="name">Starting Milage</span>
         <asp:TextBox ID="txtStartingMilageGallon" TextMode="Number" runat="server" placeholder="Starting Milage per Gallon"></asp:TextBox><br />
