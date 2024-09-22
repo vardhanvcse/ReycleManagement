@@ -38,7 +38,7 @@
                                         <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CausesValidation="false" placeholder="Date"></asp:TextBox>
                                         <br /><br />
 
-                                        <span class="name">Vehicle Id</span>
+                                        <span class="name">Vehicle</span>
                                         <asp:DropDownList ID="ddlVehicleIds" runat="server" Width="350px"></asp:DropDownList>
                                         <br /><br />
 
@@ -51,7 +51,9 @@
                                         
                                         <span class="name">Fuel Cost</span>
                                         <asp:TextBox ID="txtFuelCost" runat="server" CausesValidation="false" TextMode="Number" placeholder="Fuel Cost $"></asp:TextBox>
-                                        <br />                                        
+                                        <br /><br /> 
+                                        <asp:Button ID="btnAddVehicleMaintainance" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddVehicleMaintainance_Click" Text="Add Vehicle Maintainance" Width="175px" />
+                                        <br />
                                     </td>
                                 </tr>
                             </table>

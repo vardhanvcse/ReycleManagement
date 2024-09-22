@@ -27,6 +27,9 @@ namespace RecycleManager.BusinessAccess
                     vehicle.Vehicle_Class = (string)row["vehicle_class"];
                     vehicle.Vehicle_Type = (string)row["vehicle_type"];
                     vehicle.Weight_Text = (string)row["weight_text"];
+                    vehicle.Make = (string)row["make"];
+                    vehicle.Model = (string)row["model"];
+                    vehicle.Make_Year = (int)row["make_year"];
                     vehicles.Add(vehicle);
                 }
             }
