@@ -52,6 +52,10 @@
                                         <span class="name">Fuel Cost</span>
                                         <asp:TextBox ID="txtFuelCost" runat="server" CausesValidation="false" TextMode="Number" placeholder="Fuel Cost $"></asp:TextBox>
                                         <br /><br /> 
+
+                                         <span class="name">Maintainance Cost Dollars</span>
+                                         <asp:TextBox ID="txtMaintainanceCosts" runat="server" CausesValidation="false" TextMode="Number" placeholder="Maintainance Cost $"></asp:TextBox>
+                                         <br /><br /> 
                                         <asp:Button ID="btnAddVehicleMaintainance" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddVehicleMaintainance_Click" Text="Add Vehicle Maintainance" Width="175px" />
                                         <br />
                                     </td>

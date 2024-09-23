@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace RecycleManager.DataAccess
 {
@@ -38,6 +39,31 @@ namespace RecycleManager.DataAccess
 
             }
             return isSuccess;
+        }
+
+        public bool AddVehicleMaintainanceCosts(Vehicle vehicle)
+        {
+            bool resultStatus = false;
+            try
+            {
+                List<Tuple<string, object, SqlDbType>> parameters = new List<Tuple<string, object, SqlDbType>>
+                {
+                    new Tuple<string, object, SqlDbType>("@maintainance_date",vehicle.Maintainance_date,SqlDbType.Date),
+                    new Tuple<string, object, SqlDbType>("@vehicle_id",vehicle.Vehicle_Id,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@current_milage",((decimal)vehicle.Current_Milage),SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@fuel_usage_gallons",((decimal)vehicle.Fuel_Usage_Gallons),SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@fuel_cost_dollars",((decimal)vehicle.Fuel_Cost_Dollars),SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@maintainance_cost_dollars",((decimal)vehicle.Maintainance_Cost_Dollars),SqlDbType.Decimal),
+                };
+                 dataAccess.ExecuteNonQuery("Vehicle_Maintainance_Costs_Add", parameters);
+                resultStatus = true;
+            }
+            catch { }
+            finally
+            {
+
+            }
+            return resultStatus;
         }
         #endregion
 

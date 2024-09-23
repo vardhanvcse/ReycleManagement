@@ -1,5 +1,6 @@
 ﻿using RecycleManager.BusinessAccess;
 using RecycleManager.helpers;
+using RecycleManager.Models;
 using System;
 using System.Linq;
 
@@ -7,9 +8,10 @@ namespace RecycleManager
 {
     public partial class DataManagement : System.Web.UI.Page
     {
+        VehicleBAL vehicleBAL = new VehicleBAL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            VehicleBAL vehicleBAL = new VehicleBAL();
             if (Session[Enums.WebAttributes.LoginSession.ToString()] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -56,7 +58,26 @@ namespace RecycleManager
             if(txtDate.Text.Any() && txtCurrentMilage.Text.Any() &&
                 txtFuelCost.Text.Any() && txtFuelUse.Text.Any())
             {
-
+                var vehicle = new Vehicle()
+                {
+                    Maintainance_date = DateTime.Parse(txtDate.Text),
+                    Vehicle_Id = ddlVehicleIds.SelectedValue.ToString(),
+                    Current_Milage = double.Parse(txtCurrentMilage.Text),
+                    Fuel_Usage_Gallons = double.Parse(txtFuelUse.Text),
+                    Fuel_Cost_Dollars = double.Parse(txtFuelCost.Text),
+                    Maintainance_Cost_Dollars = double.Parse(txtMaintainanceCosts.Text),
+                };
+                try
+                {
+                    vehicleBAL.AddVehicleMaintainanceCosts(vehicle);
+                    lblResult.Text = "****Successfully added Vehicle Maintainance Costs***";
+                    lblResult.ForeColor = System.Drawing.Color.Green;
+                }
+                catch
+                {
+                    lblResult.Text = "****Failed adding Vehicle Maintainance Costs***";
+                    lblResult.ForeColor = System.Drawing.Color.Red;
+                }
             }
             else
             {

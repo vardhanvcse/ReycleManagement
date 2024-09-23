@@ -20,7 +20,7 @@ namespace RecycleManager.BusinessAccess
             if (res != null && res.Item2)
             {
                 foreach (DataRow row in res.Item1.Tables[0].Rows)
-                {                   
+                {
                     var vehicle = new Vehicle();
                     vehicle.Vehicle_Id = (string)row["vehicle_id"];
                     vehicle.Weight_Text = (string)row["weight_text"];
@@ -47,7 +47,7 @@ namespace RecycleManager.BusinessAccess
                     var vehicle = new VehicleClass();
                     vehicle.Id = (int)row["id"];
                     vehicle.Vehicle_Class = (string)row["class"];
-                    vehicle.Vehicle_Class_Description = (string)row["class_description"];                 
+                    vehicle.Vehicle_Class_Description = (string)row["class_description"];
                     vehicles.Add(vehicle);
                 }
             }
@@ -88,6 +88,10 @@ namespace RecycleManager.BusinessAccess
                 }
             }
             return vehicles;
+        }
+        public bool AddVehicleMaintainanceCosts(Vehicle vehicle)
+        {
+            return dal.AddVehicleMaintainanceCosts(vehicle);
         }
     }
 }
