@@ -69,7 +69,7 @@ namespace RecycleManager.DataAccess
         {
             DbType dbType = DbType.String;
             DBTypeConverter dBTypeConverter = new DBTypeConverter();
-            foreach (var dbTypeMap in DBTypeConverter.DBTypeList)
+            foreach (var dbTypeMap in dBTypeConverter.DBTypeList)
             {
                 if (((DbTypeMapEntry)dbTypeMap).SqlDbType == sqlDbType)
                 {
