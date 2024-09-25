@@ -19,8 +19,8 @@ namespace RecycleManager.DataAccess
             try
             {
                 var cmd = GetCommandWithParameters(procedureName, parameters);               
-                var res = cmd.ExecuteScalar();
-                execStatus = ((int)res) > 0;
+                var res = cmd.ExecuteNonQuery();
+                execStatus = true;
             }
             catch { }
             finally { conn.Close(); }
@@ -69,7 +69,7 @@ namespace RecycleManager.DataAccess
         {
             DbType dbType = DbType.String;
             DBTypeConverter dBTypeConverter = new DBTypeConverter();
-            foreach (var dbTypeMap in DBTypeConverter.DBTypeList)
+            foreach (var dbTypeMap in dBTypeConverter.DBTypeList)
             {
                 if (((DbTypeMapEntry)dbTypeMap).SqlDbType == sqlDbType)
                 {

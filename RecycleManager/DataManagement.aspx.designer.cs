@@ -11,7 +11,7 @@ namespace RecycleManager
 {
 
 
-    public partial class AddVehicle
+    public partial class DataManagement
     {
 
         /// <summary>
@@ -24,6 +24,51 @@ namespace RecycleManager
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// VehicleMaintainanceDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button VehicleMaintainanceDetails;
+
+        /// <summary>
+        /// Tab2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Tab2;
+
+        /// <summary>
+        /// Tab3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Tab3;
+
+        /// <summary>
+        /// MainView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView MainView;
+
+        /// <summary>
+        /// View1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View1;
+
+        /// <summary>
         /// lblResult control.
         /// </summary>
         /// <remarks>
@@ -33,102 +78,84 @@ namespace RecycleManager
         protected global::System.Web.UI.WebControls.Label lblResult;
 
         /// <summary>
-        /// txtVehicleId control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtVehicleId;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
 
         /// <summary>
-        /// txtYear control.
+        /// ddlVehicleIds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVehicleIds;
 
         /// <summary>
-        /// txtMake control.
+        /// txtCurrentMilage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMake;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrentMilage;
 
         /// <summary>
-        /// txtModel control.
+        /// txtFuelUse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtModel;
+        protected global::System.Web.UI.WebControls.TextBox txtFuelUse;
 
         /// <summary>
-        /// txtPurchaseDate control.
+        /// txtFuelCost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchaseDate;
+        protected global::System.Web.UI.WebControls.TextBox txtFuelCost;
 
         /// <summary>
-        /// txtStartingMilageGallon control.
+        /// txtMaintainanceCosts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStartingMilageGallon;
+        protected global::System.Web.UI.WebControls.TextBox txtMaintainanceCosts;
 
         /// <summary>
-        /// ddlVehicleWeight control.
+        /// btnAddVehicleMaintainance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlVehicleWeight;
+        protected global::System.Web.UI.WebControls.Button btnAddVehicleMaintainance;
 
         /// <summary>
-        /// ddlVehicleType control.
+        /// View2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlVehicleType;
+        protected global::System.Web.UI.WebControls.View View2;
 
         /// <summary>
-        /// ddlVehicleClass control.
+        /// View3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlVehicleClass;
-
-        /// <summary>
-        /// chkIsExcemptOfLawEnforcement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkIsExcemptOfLawEnforcement;
-
-        /// <summary>
-        /// btnAddVehicle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddVehicle;
+        protected global::System.Web.UI.WebControls.View View3;
     }
 }

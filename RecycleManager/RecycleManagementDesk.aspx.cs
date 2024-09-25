@@ -15,6 +15,9 @@ namespace RecycleManager
 
             UserBAL userBal = new UserBAL();
             lblUsers.Text = userBal.GetUsers(-100).Count.ToString();
+
+            VehicleBAL vehicleBal = new VehicleBAL();
+            lblVehicles.Text = vehicleBal.GetVehicles(string.Empty).Count.ToString();
         }
     }
 }

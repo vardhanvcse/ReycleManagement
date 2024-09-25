@@ -15,14 +15,16 @@ namespace RecycleManager.DataAccess
             {
                 Type = type;
                 DbType = dbType;
-                SqlDbType = sqlDbType;
+                SqlDbType = sqlDbType;                
             }
         }
 
-        private static ArrayList _dbTypeList = new ArrayList();
+        public DBTypeConverter() { TypeConvertor(); }
 
-        public static ArrayList DBTypeList { get { return _dbTypeList; } }
-        static void TypeConvertor()
+        private ArrayList _dbTypeList = new ArrayList();
+
+        public ArrayList DBTypeList { get { return _dbTypeList; } }
+        public void TypeConvertor()
         {
             DbTypeMapEntry dbTypeMapEntry
             = new DbTypeMapEntry(typeof(bool), DbType.Boolean, SqlDbType.Bit);

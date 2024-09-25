@@ -172,7 +172,6 @@ p {
 }
 
 
-
 .main .useradd-details {
     width: 50%;
     margin: 0 auto;
@@ -181,22 +180,22 @@ p {
     margin: 2% auto;
 }
 
-    .main .useradd-details h3 {
-        margin-bottom: 2%;
-    }
+.main .useradd-details h3 {
+    margin-bottom: 2%;
+}
 
-    .main .useradd-details .name {
-        width: 20%;
-        float: left;
-    }
+.main .useradd-details .name {
+    width: 20%;
+    float: left;
+}
 
-    .main .useradd-details input[type='text'], .main .useradd-details input[type='email'],
-    .main .useradd-details input[type='tel'], .main .useradd-details input[type='password'],
-    .main .useradd-details textarea {
-        padding: 1%;
-        margin: 0.5%;
-        width: 75%;
-    }
+.main .useradd-details input[type='text'], .main .useradd-details input[type='email'],
+.main .useradd-details input[type='tel'], .main .useradd-details input[type='password'],
+.main .useradd-details textarea {
+    padding: 1%;
+    margin: 0.5%;
+    width: 75%;
+}
 
 /* Style for the calendar icon */
 .calendar-icon {
@@ -211,10 +210,4 @@ p {
     background-color: white;
     border: 1px solid #ccc;
     padding: 10px;
-}
-/* Close button style */
-.close-btn {
-    cursor: pointer;
-    color: red;
-    font-size: 14px;
 }
