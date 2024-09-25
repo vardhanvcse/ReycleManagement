@@ -6,7 +6,7 @@ namespace RecycleManager.BusinessAccess
 {
     public class LoginBAL
     {
-        LoginDAL dal = new LoginDAL();
+        public LoginDAL dal = new LoginDAL();
 
         public bool VerifyUserLogin(UserLogin user)
         {
