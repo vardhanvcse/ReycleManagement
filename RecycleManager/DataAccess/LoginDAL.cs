@@ -9,7 +9,7 @@ namespace RecycleManager.DataAccess
     {
         private DAL dataAccess = new DAL();
 
-        public Tuple<DataSet,bool> GetUserIdbyName(UserLogin userLogin)
+        public virtual Tuple<DataSet,bool> GetUserIdbyName(UserLogin userLogin)
         {
             try
             {
