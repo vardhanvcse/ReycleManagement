@@ -42,13 +42,13 @@ namespace RecycleManager
         protected global::System.Web.UI.WebControls.Button RecyclingCollectionDeatils;
 
         /// <summary>
-        /// Tab3 control.
+        /// RecyclingRevenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Tab3;
+        protected global::System.Web.UI.WebControls.Button RecyclingRevenue;
 
         /// <summary>
         /// MainView control.
@@ -202,5 +202,68 @@ namespace RecycleManager
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View3;
+
+        /// <summary>
+        /// lblRecycleRevenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecycleRevenue;
+
+        /// <summary>
+        /// txtRecycleRevenueSaleDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecycleRevenueSaleDate;
+
+        /// <summary>
+        /// ddlRecycleRevenueMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRecycleRevenueMaterial;
+
+        /// <summary>
+        /// txtRecycleRevenueWeightOfMaterialSoldlbs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRecycleRevenueWeightOfMaterialSoldlbs;
+
+        /// <summary>
+        /// txtRevenueInDollars control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRevenueInDollars;
+
+        /// <summary>
+        /// txtBuyer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuyer;
+
+        /// <summary>
+        /// btnRecycleRevenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRecycleRevenue;
     }
 }

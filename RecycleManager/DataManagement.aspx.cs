@@ -22,7 +22,7 @@ namespace RecycleManager
             {
                 VehicleMaintainanceDetails.BackColor = System.Drawing.Color.Gray;
                 RecyclingCollectionDeatils.BorderColor = System.Drawing.Color.LightGray;
-                Tab3.BorderColor = System.Drawing.Color.LightGray;
+                RecyclingRevenue.BorderColor = System.Drawing.Color.LightGray;
                 MainView.ActiveViewIndex = 0;
                 var vehicles = vehicleBAL.GetVehicles(string.Empty);
                 var materials = materialBal.GetMaterials(-1);
@@ -30,14 +30,16 @@ namespace RecycleManager
                     ddlVehicleIds.Items.Add(new System.Web.UI.WebControls.ListItem(x.Make+"-"+x.Model+"-"+x.Make_Year, x.Vehicle_Id));
                 });
                 materials.ToList().ForEach(x => {
-                    ddlMaterialWate.Items.Add(x.Material_Name);});
+                    ddlMaterialWate.Items.Add(x.Material_Name);
+                    ddlRecycleRevenueMaterial.Items.Add(x.Material_Name);
+                });
             }            
         }
         protected void VehicleMaintainanceDetails_Click(object sender, EventArgs e)
         {
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.Gray;
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.LightGray;
-            Tab3.BackColor = System.Drawing.Color.LightGray;
+            RecyclingRevenue.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 0;
         }
 
@@ -45,13 +47,13 @@ namespace RecycleManager
         {
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.Gray;
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.LightGray;
-            Tab3.BackColor = System.Drawing.Color.LightGray;
+            RecyclingRevenue.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 1;
         }
 
-        protected void Tab3_Click(object sender, EventArgs e)
+        protected void RecyclingRevenue_Click(object sender, EventArgs e)
         {
-            Tab3.BackColor = System.Drawing.Color.Gray;
+            RecyclingRevenue.BackColor = System.Drawing.Color.Gray;
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.LightGray;
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 2;
@@ -120,6 +122,42 @@ namespace RecycleManager
                 lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Red;
                 lblRecycleCollectionResult.Text = (!txtCollectionDate.Text.Any() ? ("****Provide the Collection Date information*****" + "<br/>") : string.Empty) +
                    (!txtFoodWasteWeight.Text.Any() ? ("****Provide theWeight of Material Waste*****" + "<br/>") : string.Empty);
+            }
+        }
+
+        protected void btnRecycleRevenue_Click(object sender, EventArgs e)
+        {
+            if (txtRecycleRevenueSaleDate.Text.Any() && txtRecycleRevenueWeightOfMaterialSoldlbs.Text.Any() &&
+                txtRevenueInDollars.Text.Any() && txtBuyer.Text.Any())
+            {
+                RecyclingRevenue recyclingRevenue = new RecyclingRevenue()
+                {
+                    Sale_Date = DateTime.Parse(txtRecycleRevenueSaleDate.Text),
+                    Material_Name = ddlRecycleRevenueMaterial.SelectedItem.Text,
+                    WeightInLbs = decimal.Parse(txtRecycleRevenueWeightOfMaterialSoldlbs.Text),
+                    RevenueInDollars = decimal.Parse(txtRevenueInDollars.Text),
+                    Buyer = txtBuyer.Text.Trim(),
+                };
+
+                bool result = materialBal.AddRecyclingRevenue(recyclingRevenue);
+                if (result)
+                {
+                    lblRecycleCollectionResult.Text = "****Successfully added Sale Revenue details***";
+                    lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblRecycleCollectionResult.Text = "****Failed adding Sale Revenue details***";
+                    lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Red;
+                lblRecycleCollectionResult.Text = (!txtRecycleRevenueSaleDate.Text.Any() ? ("****Provide the Sale Date information*****" + "<br/>") : string.Empty) +
+                   (!txtRecycleRevenueWeightOfMaterialSoldlbs.Text.Any() ? ("****Provide the Weight of Material Waste for sale*****" + "<br/>") : string.Empty)+
+                     (!txtRevenueInDollars.Text.Any() ? ("****Provide the Sale Revenue in $*****" + "<br/>") : string.Empty)+
+                       (!txtBuyer.Text.Any() ? ("****Provide the Buyer of Material Waste    *****" + "<br/>") : string.Empty);
             }
         }
     }

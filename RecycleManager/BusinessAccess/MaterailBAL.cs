@@ -35,5 +35,10 @@ namespace RecycleManager.BusinessAccess
         {
             return dal.AddRecyclingCollection(materialCollection);
         }
+
+        public bool AddRecyclingRevenue(RecyclingRevenue recyclingRevenue)
+        {
+            return dal.AddRecyclingRevenue(recyclingRevenue);
+        }
     }
 }

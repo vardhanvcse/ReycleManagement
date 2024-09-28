@@ -22,8 +22,8 @@
                         OnClick="VehicleMaintainanceDetails_Click" style="background-color:lightgray" />
                     <asp:Button Text="Material Waste Collection" BorderStyle="None" ID="RecyclingCollectionDeatils" runat="server"
                         OnClick="RecyclingCollectionDeatils_Click" style="background-color:lightgray" />
-                    <asp:Button Text="Tab 3" BorderStyle="None" ID="Tab3" runat="server"
-                        OnClick="Tab3_Click" style="background-color:lightgray" />
+                    <asp:Button Text="Recycle Revenue" BorderStyle="None" ID="RecyclingRevenue" runat="server"
+                        OnClick="RecyclingRevenue_Click" style="background-color:lightgray" />
                     
                     <asp:MultiView ID="MainView" runat="server">
                         <asp:View ID="View1" runat="server">
@@ -56,6 +56,7 @@
                                          <span class="name">Maintainance Cost Dollars</span>
                                          <asp:TextBox ID="txtMaintainanceCosts" runat="server" CausesValidation="false" TextMode="Number" placeholder="Maintainance Cost $"></asp:TextBox>
                                          <br /><br /> 
+                                        <br />
                                         <asp:Button ID="btnAddVehicleMaintainance" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddVehicleMaintainance_Click" Text="Add Vehicle Maintainance" Width="175px" />
                                         <br />
                                     </td>
@@ -82,7 +83,7 @@
                                             <span class="name">Weight of Material Waste(lbs)</span>
                                             <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Food Waste Weight in lbs"  runat="server" />
                                             <br /><br />
-
+                                             <br /><br />
                                             <asp:Button ID="btnAddMaterialWasteCollectionDetails" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddMaterialWasteCollectionDetails_Click" Text="Add Material Collection" Width="175px" />
                                             <br /> 
                                     </td>
@@ -93,9 +94,33 @@
                         <asp:View ID="View3" runat="server">
                             <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
                                 <tr>
-                                    <td>
-                                        <h3>View 3</h3>
-                                    </td>
+                                         <td>
+                                            <h3>Recycle Renue</h3><br />
+                                               <asp:Label ID="lblRecycleRevenue" Visible="true" Width="100%" runat="server" Text=""></asp:Label>
+                                                <br />
+                                    
+                                                <span class="name">Sale Date</span>
+                                                <asp:TextBox ID="txtRecycleRevenueSaleDate" runat="server" TextMode="Date" CausesValidation="false" placeholder="Date"></asp:TextBox>
+                                                <br /><br />
+
+                                                <span class="name">Material Type</span>
+                                                <asp:DropDownList ID="ddlRecycleRevenueMaterial" runat="server" Width="350px"></asp:DropDownList>
+                                                <br /><br />
+
+                                                <span class="name">Weight of Material Sold(lbs)</span>
+                                                <asp:TextBox ID="txtRecycleRevenueWeightOfMaterialSoldlbs" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Weight Of Material Sold in lbs"  runat="server" />
+                                                <br /><br />
+                                                <br /><br />
+                                                <span class="name">Revenue of Sale(in $)</span>
+                                                <asp:TextBox ID="txtRevenueInDollars" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Revenue of sale in Dollars"  runat="server" />
+                                                <br /><br />
+                                                <br />
+                                                <span class="name">Buyer</span>
+                                                <asp:TextBox ID="txtBuyer" Width="350px"  CausesValidation="false" placeholder="Buyer of the Material Waste"  runat="server" />
+                                                <br /><br />
+                                                <asp:Button ID="btnRecycleRevenue" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnRecycleRevenue_Click" Text="Add Recycle Revenue" Width="175px" />
+                                                <br /> 
+                                        </td>                             
                                 </tr>
                             </table>
                         </asp:View>

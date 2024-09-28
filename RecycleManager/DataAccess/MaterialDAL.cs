@@ -73,5 +73,29 @@ namespace RecycleManager.DataAccess
         }
 
         #endregion
+
+
+        #region Recycling Revenue Thru the Material Sale
+        public bool AddRecyclingRevenue(RecyclingRevenue recyclingRevenue)
+        {
+            bool isSuccess = false;
+            try
+            {
+                List<Tuple<string, object, SqlDbType>> parameters = new List<Tuple<string, object, SqlDbType>>
+                {
+                    new Tuple<string, object, SqlDbType>("@sale_date",recyclingRevenue.Sale_Date,SqlDbType.Date),
+                    new Tuple<string, object, SqlDbType>("@material_name",recyclingRevenue.Material_Name,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@weight_in_lbs",recyclingRevenue.WeightInLbs,SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@revenue",recyclingRevenue.RevenueInDollars,SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@buyer",recyclingRevenue.Buyer,SqlDbType.NVarChar),
+                };
+                isSuccess = dataAccess.ExecuteNonQuery("Recycling_Revenue_Add", parameters);
+            }
+            catch { }
+            finally { }
+            return isSuccess;
+        }
+
+        #endregion
     }
 }
