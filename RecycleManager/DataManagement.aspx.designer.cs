@@ -33,13 +33,13 @@ namespace RecycleManager
         protected global::System.Web.UI.WebControls.Button VehicleMaintainanceDetails;
 
         /// <summary>
-        /// Tab2 control.
+        /// RecyclingCollectionDeatils control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Tab2;
+        protected global::System.Web.UI.WebControls.Button RecyclingCollectionDeatils;
 
         /// <summary>
         /// Tab3 control.
@@ -148,6 +148,51 @@ namespace RecycleManager
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View2;
+
+        /// <summary>
+        /// lblRecycleCollectionResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecycleCollectionResult;
+
+        /// <summary>
+        /// txtCollectionDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCollectionDate;
+
+        /// <summary>
+        /// ddlMaterialWate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMaterialWate;
+
+        /// <summary>
+        /// txtFoodWasteWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFoodWasteWeight;
+
+        /// <summary>
+        /// btnAddMaterialWasteCollectionDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddMaterialWasteCollectionDetails;
 
         /// <summary>
         /// View3 control.

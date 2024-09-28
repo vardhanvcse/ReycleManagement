@@ -20,8 +20,8 @@
                 <td>
                     <asp:Button Text="Vehicle Maintenance Details" BorderStyle="None" ID="VehicleMaintainanceDetails" runat="server"
                         OnClick="VehicleMaintainanceDetails_Click" style="background-color:lightgray" />
-                    <asp:Button Text="Tab 2" BorderStyle="None" ID="Tab2" runat="server"
-                        OnClick="Tab2_Click" style="background-color:lightgray" />
+                    <asp:Button Text="Recycling Collection" BorderStyle="None" ID="RecyclingCollectionDeatils" runat="server"
+                        OnClick="RecyclingCollectionDeatils_Click" style="background-color:lightgray" />
                     <asp:Button Text="Tab 3" BorderStyle="None" ID="Tab3" runat="server"
                         OnClick="Tab3_Click" style="background-color:lightgray" />
                     
@@ -67,7 +67,24 @@
                             <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
                                 <tr>
                                     <td>
-                                        <h3>View 2</h3>
+                                        <h3>Recycling Collection</h3>
+                                           <asp:Label ID="lblRecycleCollectionResult" runat="server" Text=""></asp:Label>
+                                            <br />
+                                            
+                                            <span class="name">Date</span>
+                                            <asp:TextBox ID="txtCollectionDate" runat="server" TextMode="Date" CausesValidation="false" placeholder="Date"></asp:TextBox>
+                                            <br /><br />
+
+                                            <span class="name">Material Waste</span>
+                                            <asp:DropDownList ID="ddlMaterialWate" runat="server" Width="350px"></asp:DropDownList>
+                                            <br /><br />
+
+                                            <span class="name">Weight of Material Waste(lbs)</span>
+                                            <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Food Waste Weight in lbs"  runat="server" />
+                                            <br /><br />
+
+                                            <asp:Button ID="btnAddMaterialWasteCollectionDetails" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddMaterialWasteCollectionDetails_Click" Text="Add Material Collection" Width="175px" />
+                                            <br /> 
                                     </td>
                                 </tr>
                             </table>

@@ -49,6 +49,29 @@ namespace RecycleManager.DataAccess
             }
             return resultStatus;
         }
-        #endregion        
+        #endregion
+
+
+        #region Recycling_Collection
+
+        public bool AddRecyclingCollection(MaterialCollection materialCollection)
+        {
+            bool isSuccess = false;
+            try
+            {
+                List<Tuple<string, object, SqlDbType>> parameters = new List<Tuple<string, object, SqlDbType>>
+                {
+                    new Tuple<string, object, SqlDbType>("@collection_date",materialCollection.CollectionDate,SqlDbType.Date),
+                    new Tuple<string, object, SqlDbType>("@material_name",materialCollection.Material_Name,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@weight_in_lbs",materialCollection.WeightInLbs,SqlDbType.Decimal),
+                };
+                isSuccess = dataAccess.ExecuteNonQuery("Recycling_Collection_Add", parameters);
+            }
+            catch { }
+            finally { }
+            return isSuccess;
+        }
+
+        #endregion
     }
 }
