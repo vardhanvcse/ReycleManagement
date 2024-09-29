@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-09-29T05:35:31.7583097Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-09-29T18:11:36.0148450Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -29,6 +29,18 @@
       <Query>
         <DataSourceName>RecycleManagementDb</DataSourceName>
         <CommandText>(SELECT 
+    convert(nvarchar,DATENAME(MONTH,sale_date)) +'-'+ convert(nvarchar,YEAR(sale_date)) AS collectiondate,
+    SUM(revenue) AS totalweight  ,'Recycle Revenue($)' as material_name
+	
+FROM 
+    recycling_revenue recrev inner join material mat on mat.material_id = recrev.material_id
+	  WHERE mat.material_name NOT IN ('FoodWaste','LandFill')
+	GROUP BY 
+  YEAR(sale_date),sale_date)
+
+union
+
+(SELECT 
     convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
     SUM(weight_in_lbs) AS totalweight ,mat.material_name
 	
@@ -171,6 +183,7 @@ FROM
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                       <DataElementOutput>Output</DataElementOutput>
                     </TablixCell>
@@ -262,6 +275,7 @@ FROM
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <DataElementOutput>Output</DataElementOutput>
@@ -363,8 +377,8 @@ FROM
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.49944in</Top>
-            <Height>0.62833in</Height>
-            <Width>4.18056in</Width>
+            <Height>0.62834in</Height>
+            <Width>4.18055in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
