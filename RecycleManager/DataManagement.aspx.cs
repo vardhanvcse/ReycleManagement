@@ -142,19 +142,19 @@ namespace RecycleManager
                 bool result = materialBal.AddRecyclingRevenue(recyclingRevenue);
                 if (result)
                 {
-                    lblRecycleCollectionResult.Text = "****Successfully added Sale Revenue details***";
-                    lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Green;
+                    lblRecycleRevenue.Text = "****Successfully added Sale Revenue details***";
+                    lblRecycleRevenue.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lblRecycleCollectionResult.Text = "****Failed adding Sale Revenue details***";
-                    lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Red;
+                    lblRecycleRevenue.Text = "****Failed adding Sale Revenue details***";
+                    lblRecycleRevenue.ForeColor = System.Drawing.Color.Red;
                 }
             }
             else
             {
-                lblRecycleCollectionResult.ForeColor = System.Drawing.Color.Red;
-                lblRecycleCollectionResult.Text = (!txtRecycleRevenueSaleDate.Text.Any() ? ("****Provide the Sale Date information*****" + "<br/>") : string.Empty) +
+                lblRecycleRevenue.ForeColor = System.Drawing.Color.Red;
+                lblRecycleRevenue.Text = (!txtRecycleRevenueSaleDate.Text.Any() ? ("****Provide the Sale Date information*****" + "<br/>") : string.Empty) +
                    (!txtRecycleRevenueWeightOfMaterialSoldlbs.Text.Any() ? ("****Provide the Weight of Material Waste for sale*****" + "<br/>") : string.Empty)+
                      (!txtRevenueInDollars.Text.Any() ? ("****Provide the Sale Revenue in $*****" + "<br/>") : string.Empty)+
                        (!txtBuyer.Text.Any() ? ("****Provide the Buyer of Material Waste    *****" + "<br/>") : string.Empty);
