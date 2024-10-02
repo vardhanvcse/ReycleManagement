@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-09-29T18:11:36.0148450Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-09-30T15:50:02.3588941Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -133,6 +133,7 @@ FROM
                               <TextRun>
                                 <Value />
                                 <Style>
+                                  <FontWeight>Bold</FontWeight>
                                   <Color>#333333</Color>
                                 </Style>
                               </TextRun>
@@ -198,6 +199,7 @@ FROM
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -236,6 +238,7 @@ FROM
                             <BottomBorder>
                               <Style>Solid</Style>
                             </BottomBorder>
+                            <BackgroundColor>LightGreen</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -275,6 +278,7 @@ FROM
                                 <Value>=Fields!collectiondate.Value</Value>
                                 <Style>
                                   <FontFamily>times New Roman</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
                                   <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
@@ -289,6 +293,7 @@ FROM
                           <Border>
                             <Color>LightGrey</Color>
                           </Border>
+                          <BackgroundColor>Tan</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -314,6 +319,7 @@ FROM
                                 <Value>Item Totals</Value>
                                 <Style>
                                   <FontFamily>times New Roman</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
                                   <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
@@ -328,6 +334,7 @@ FROM
                           <Border>
                             <Color>LightGrey</Color>
                           </Border>
+                          <BackgroundColor>Tan</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -365,6 +372,7 @@ FROM
                                 <Value>=Fields!material_name.Value</Value>
                                 <Style>
                                   <FontFamily>times New Roman</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
                                   <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
@@ -379,6 +387,7 @@ FROM
                           <Border>
                             <Color>LightGrey</Color>
                           </Border>
+                          <BackgroundColor>Tan</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>

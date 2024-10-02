@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SummaryReport.aspx.cs" Inherits="RecycleManager.Reports.SummaryReport" %>
+
 <%@ Register Assembly="System.Web.DataVisualization, Version=3.5.0.0, 
                        Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI.DataVisualization.Charting" 
     TagPrefix="asp" %>
-<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,9 +27,7 @@
                 </Legends>
             </asp:Chart>
         </div>
-       <div>
-           <rsweb:ReportViewer  runact="server" />
-       </div>
+      
     </form>
 </body>
 </html>
