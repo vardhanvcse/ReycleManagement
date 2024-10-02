@@ -24,7 +24,8 @@
                         OnClick="RecyclingCollectionDeatils_Click" style="background-color:lightgray" />
                     <asp:Button Text="Recycle Revenue" BorderStyle="None" ID="RecyclingRevenue" runat="server"
                         OnClick="RecyclingRevenue_Click" style="background-color:lightgray" />
-                    
+                    <asp:Button Text="Land Fill Expense" BorderStyle="None" ID="LandFillExpenses" runat="server"
+                        OnClick="LandFillExpenses_Click" style="background-color:lightgray" />
                     <asp:MultiView ID="MainView" runat="server">
                         <asp:View ID="View1" runat="server">
                             <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
@@ -119,6 +120,36 @@
                                                 <asp:TextBox ID="txtBuyer" Width="350px"  CausesValidation="false" placeholder="Buyer of the Material Waste"  runat="server" />
                                                 <br /><br />
                                                 <asp:Button ID="btnRecycleRevenue" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnRecycleRevenue_Click" Text="Add Recycle Revenue" Width="175px" />
+                                                <br /> 
+                                        </td>                             
+                                </tr>
+                            </table>
+                        </asp:View>
+
+                        <asp:View ID="View4" runat="server">
+                            <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
+                                <tr>
+                                         <td>
+                                            <h3>Land Fill Expense</h3><br />
+                                                  <asp:Label ID="lblLandFillExpense" Visible="true" Width="100%" runat="server" Text=""></asp:Label>
+                                                  <br />                                
+                                                <span class="name">Land Fill Date</span>
+                                                <asp:TextBox ID="txtLandFillDate" runat="server" TextMode="Date" CausesValidation="false" placeholder="Date"></asp:TextBox>
+                                                <br /><br />                                               
+
+                                                <span class="name">Land Fill Weight(lbs)</span>
+                                                <asp:TextBox ID="txtLandFillWeight" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Weight Of Land Fill Waste lbs"  runat="server" />
+                                                <br /><br />
+                                                <br /><br />
+                                                <span class="name">Landfill Expense(in $)</span>
+                                                <asp:TextBox ID="txtLandFillExpense" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Landfill Expense Spent"  runat="server" />
+                                                <br /><br />
+                                                <br />
+                                                <span class="name">Hauler</span>
+                                                <asp:TextBox ID="txtLandFillHauler" Width="350px"  CausesValidation="false" placeholder="Buyer of the Material Waste"  runat="server" />
+                                                <br /><br />                                    
+                                             
+                                                <asp:Button ID="btnAddLandFillExpense" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddLandFillExpense_Click" Text="Add Recycle Revenue" Width="175px" />
                                                 <br /> 
                                         </td>                             
                                 </tr>

@@ -40,6 +40,7 @@ namespace RecycleManager
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.Gray;
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.LightGray;
             RecyclingRevenue.BackColor = System.Drawing.Color.LightGray;
+            LandFillExpenses.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 0;
         }
 
@@ -48,6 +49,7 @@ namespace RecycleManager
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.Gray;
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.LightGray;
             RecyclingRevenue.BackColor = System.Drawing.Color.LightGray;
+            LandFillExpenses.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 1;
         }
 
@@ -56,6 +58,7 @@ namespace RecycleManager
             RecyclingRevenue.BackColor = System.Drawing.Color.Gray;
             VehicleMaintainanceDetails.BackColor = System.Drawing.Color.LightGray;
             RecyclingCollectionDeatils.BackColor = System.Drawing.Color.LightGray;
+            LandFillExpenses.BackColor = System.Drawing.Color.LightGray;
             MainView.ActiveViewIndex = 2;
         }
 
@@ -158,6 +161,50 @@ namespace RecycleManager
                    (!txtRecycleRevenueWeightOfMaterialSoldlbs.Text.Any() ? ("****Provide the Weight of Material Waste for sale*****" + "<br/>") : string.Empty)+
                      (!txtRevenueInDollars.Text.Any() ? ("****Provide the Sale Revenue in $*****" + "<br/>") : string.Empty)+
                        (!txtBuyer.Text.Any() ? ("****Provide the Buyer of Material Waste    *****" + "<br/>") : string.Empty);
+            }
+        }
+
+        protected void LandFillExpenses_Click(object sender, EventArgs e)
+        {
+            RecyclingRevenue.BackColor = System.Drawing.Color.LightGray;
+            VehicleMaintainanceDetails.BackColor = System.Drawing.Color.LightGray;
+            RecyclingCollectionDeatils.BackColor = System.Drawing.Color.LightGray;
+            LandFillExpenses.BackColor = System.Drawing.Color.Gray;
+            MainView.ActiveViewIndex = 3;
+        }
+
+        protected void btnAddLandFillExpense_Click(object sender, EventArgs e)
+        {
+            if (txtLandFillDate.Text.Any() && txtLandFillExpense.Text.Any() &&
+             txtLandFillHauler.Text.Any() && txtLandFillWeight.Text.Any())
+            {
+                LandFillExpense landFillExpense = new LandFillExpense()
+                {
+                    LandfillDate = DateTime.Parse(txtLandFillDate.Text),
+                    Expense = decimal.Parse(txtLandFillExpense.Text),
+                    Weight = decimal.Parse(txtLandFillWeight.Text),
+                    Hauler = txtLandFillHauler.Text
+                };
+
+                bool result = materialBal.AddLandFillExpense(landFillExpense);
+                if (result)
+                {
+                    lblLandFillExpense.Text = "****Successfully added Landfill expense details***";
+                    lblLandFillExpense.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblLandFillExpense.Text = "****Failed adding Landfill expense details***";
+                    lblLandFillExpense.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                lblLandFillExpense.ForeColor = System.Drawing.Color.Red;
+                lblLandFillExpense.Text = (!txtLandFillDate.Text.Any() ? ("****Provide the Landfill Date information*****" + "<br/>") : string.Empty) +
+                   (!txtLandFillExpense.Text.Any() ? ("****Provide the Weight of Material Waste for sale*****" + "<br/>") : string.Empty) +
+                     (!txtLandFillWeight.Text.Any() ? ("****Provide the Landfill Weight*****" + "<br/>") : string.Empty) +
+                       (!txtLandFillHauler.Text.Any() ? ("****Provide the Hauler information*****" + "<br/>") : string.Empty);
             }
         }
     }

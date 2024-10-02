@@ -97,5 +97,28 @@ namespace RecycleManager.DataAccess
         }
 
         #endregion
+
+        #region Lanfill Expense
+
+        public bool AddLandFillExpense(LandFillExpense landFillExpense)
+        {
+            bool isSuccess = false;
+            try
+            {
+                List<Tuple<string, object, SqlDbType>> parameters = new List<Tuple<string, object, SqlDbType>>
+                {
+                    new Tuple<string, object, SqlDbType>("@land_fill_date",landFillExpense.LandfillDate,SqlDbType.Date),
+                    new Tuple<string, object, SqlDbType>("@weight_in_lbs",landFillExpense.Weight,SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@expense",landFillExpense.Expense,SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@hauler",landFillExpense.Hauler,SqlDbType.NVarChar),
+                };
+                isSuccess = dataAccess.ExecuteNonQuery("Land_Fill_Expense_Add", parameters);
+            }
+            catch { }
+            finally { }
+            return isSuccess;
+        }
+
+        #endregion
     }
 }

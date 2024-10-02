@@ -26,8 +26,8 @@
                     <asp:Legend Name="Legend1"></asp:Legend>
                 </Legends>
             </asp:Chart>
-        </div>
-      
+        </div>  
+
     </form>
 </body>
 </html>

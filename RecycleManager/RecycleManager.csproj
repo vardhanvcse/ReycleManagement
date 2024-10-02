@@ -326,6 +326,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LandFillExpense.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\MaterialCollection.cs" />
     <Compile Include="Models\RecyclingRevenue.cs" />

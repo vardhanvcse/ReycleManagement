@@ -40,5 +40,10 @@ namespace RecycleManager.BusinessAccess
         {
             return dal.AddRecyclingRevenue(recyclingRevenue);
         }
+
+        public bool AddLandFillExpense(LandFillExpense landFillExpense)
+        {
+            return dal.AddLandFillExpense(landFillExpense);
+        }
     }
 }
