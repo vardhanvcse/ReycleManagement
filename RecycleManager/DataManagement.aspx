@@ -142,7 +142,7 @@
                                                 <br /><br />
                                                 <br /><br />
                                                 <span class="name">Landfill Expense(in $)</span>
-                                                <asp:TextBox ID="txtLandFillExpense" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Landfill Expense Spent"  runat="server" />
+                                                <asp:TextBox ID="txtLandFillExpense" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Landfill Expense Spent($)"  runat="server" />
                                                 <br /><br />
                                                 <br />
                                                 <span class="name">Hauler</span>

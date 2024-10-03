@@ -3,31 +3,31 @@
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.7.34031.279</am:Version>
+      <am:Version>17.9.34701.34</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-09-30T15:50:02.3588941Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-03T19:12:47.4515893Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="RecycleManagementDb">
+    <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=.;Initial Catalog=RecycleManagement</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>32a925f7-d33c-40c8-82b1-0f247d866e3f</rd:DataSourceID>
+      <rd:DataSourceID>ab589769-3383-4cda-8765-223175c30f33</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>RecycleManagementDb</DataSourceName>
+        <DataSourceName>DataSource1</DataSourceName>
         <CommandText>(SELECT 
     convert(nvarchar,DATENAME(MONTH,sale_date)) +'-'+ convert(nvarchar,YEAR(sale_date)) AS collectiondate,
     SUM(revenue) AS totalweight  ,'Recycle Revenue($)' as material_name
@@ -66,8 +66,7 @@ union
     SUM(weight_in_lbs) AS totalweight  ,'Total Waste Generated lbs.' as material_name	
 FROM 
     recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 	  
-	GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)))
-</CommandText>
+	GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)))</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -97,9 +96,10 @@ FROM
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Summary Table</Value>
+                    <Value>Summary Report
+</Value>
                     <Style>
-                      <FontFamily>times New Roman</FontFamily>
+                      <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -118,34 +118,45 @@ FROM
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Tablix Name="matrix1">
+          <Tablix Name="Tablix1">
             <TablixCorner>
               <TablixCornerRows>
                 <TablixCornerRow>
                   <TablixCornerCell>
                     <CellContents>
-                      <Textbox Name="textbox3">
+                      <Textbox Name="Textbox5">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value />
+                                <Value>FY-</Value>
                                 <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#333333</Color>
+                                  <FontFamily>Times New Roman</FontFamily>
+                                  <FontSize>12pt</FontSize>
+                                  <TextDecoration>Underline</TextDecoration>
+                                </Style>
+                              </TextRun>
+                              <TextRun>
+                                <Value>=Split(Fields!collectiondate.Value,"-")(1)</Value>
+                                <Style>
+                                  <FontFamily>Times New Roman</FontFamily>
+                                  <FontSize>12pt</FontSize>
+                                  <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>textbox3</rd:DefaultName>
+                        <rd:DefaultName>Textbox5</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
+                            <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>Olive</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -160,55 +171,16 @@ FROM
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.14583in</Width>
+                  <Width>1.63194in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>1.30556in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.31417in</Height>
+                  <Height>0.25in</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="textbox2">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!totalweight.Value)</Value>
-                                  <Style>
-                                    <FontFamily>times New Roman</FontFamily>
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>textbox2</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightGreen</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                      <DataElementOutput>Output</DataElementOutput>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="totalweight">
@@ -220,25 +192,22 @@ FROM
                                 <TextRun>
                                   <Value>=Sum(Fields!totalweight.Value)</Value>
                                   <Style>
-                                    <FontFamily>times New Roman</FontFamily>
-                                    <Color>#333333</Color>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>totalweight</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
-                            </Border>
-                            <BottomBorder>
                               <Style>Solid</Style>
-                            </BottomBorder>
-                            <BackgroundColor>LightGreen</BackgroundColor>
+                            </Border>
+                            <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
+,"LightGray","LightGreen")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -246,7 +215,41 @@ FROM
                           </Style>
                         </Textbox>
                       </CellContents>
-                      <DataElementOutput>Output</DataElementOutput>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="totalweight1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!totalweight.Value)</Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>totalweight1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
+,"LightGray","LightGreen")</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
@@ -255,7 +258,7 @@ FROM
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="matrix1_collectiondate">
+                  <Group Name="collectiondate">
                     <GroupExpressions>
                       <GroupExpression>=Fields!collectiondate.Value</GroupExpression>
                     </GroupExpressions>
@@ -266,7 +269,7 @@ FROM
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.31417in</Size>
+                    <Size>0.25in</Size>
                     <CellContents>
                       <Textbox Name="collectiondate">
                         <CanGrow>true</CanGrow>
@@ -277,23 +280,22 @@ FROM
                               <TextRun>
                                 <Value>=Fields!collectiondate.Value</Value>
                                 <Style>
-                                  <FontFamily>times New Roman</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
+                                  <FontFamily>Times New Roman</FontFamily>
+                                  <FontSize>12pt</FontSize>
                                   <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>collectiondate</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
+                            <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>Tan</BackgroundColor>
+                          <BackgroundColor>Olive</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -302,39 +304,36 @@ FROM
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
-                  <DataElementOutput>Output</DataElementOutput>
-                  <KeepTogether>true</KeepTogether>
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.31417in</Size>
+                    <Size>0.25in</Size>
                     <CellContents>
-                      <Textbox Name="Textbox4">
+                      <Textbox Name="Textbox6">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Item Totals</Value>
+                                <Value>Totalweight</Value>
                                 <Style>
-                                  <FontFamily>times New Roman</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
+                                  <FontFamily>Times New Roman</FontFamily>
+                                  <FontSize>12pt</FontSize>
                                   <TextDecoration>Underline</TextDecoration>
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox4</rd:DefaultName>
+                        <rd:DefaultName>Textbox6</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
+                            <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>Tan</BackgroundColor>
+                          <BackgroundColor>Olive</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -349,7 +348,7 @@ FROM
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="matrix1_material_name">
+                  <Group Name="material_name">
                     <GroupExpressions>
                       <GroupExpression>=Fields!material_name.Value</GroupExpression>
                     </GroupExpressions>
@@ -360,7 +359,7 @@ FROM
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.03472in</Size>
+                    <Size>1.40972in</Size>
                     <CellContents>
                       <Textbox Name="material_name">
                         <CanGrow>true</CanGrow>
@@ -371,23 +370,22 @@ FROM
                               <TextRun>
                                 <Value>=Fields!material_name.Value</Value>
                                 <Style>
-                                  <FontFamily>times New Roman</FontFamily>
-                                  <FontWeight>Bold</FontWeight>
-                                  <TextDecoration>Underline</TextDecoration>
+                                  <FontFamily>Times New Roman</FontFamily>
+                                  <FontSize>12pt</FontSize>
                                 </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>material_name</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
+                            <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>Tan</BackgroundColor>
+                          <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
+,"LightGray","LightGreen")</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
@@ -396,28 +394,24 @@ FROM
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
-                  <DataElementOutput>Output</DataElementOutput>
-                  <KeepTogether>true</KeepTogether>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet1</DataSetName>
             <Top>0.49944in</Top>
-            <Height>0.62834in</Height>
-            <Width>4.18055in</Width>
+            <Left>0.23833in</Left>
+            <Height>0.5in</Height>
+            <Width>4.34722in</Width>
             <ZIndex>1</ZIndex>
-            <Style />
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.475in</Height>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BackgroundColor>LightBlue</BackgroundColor>
-        </Style>
+        <Height>1.14167in</Height>
+        <Style />
       </Body>
       <Width>5in</Width>
       <Page>
@@ -438,5 +432,5 @@ FROM
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>41da61d5-a8f9-43f3-9be4-83d0ba7286bb</rd:ReportID>
+  <rd:ReportID>0aebf7aa-be3e-48d6-a6c2-94a8adb94914</rd:ReportID>
 </Report>

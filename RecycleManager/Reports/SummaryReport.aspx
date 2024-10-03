@@ -13,7 +13,7 @@
 <body>
    <form id="form1" runat="server">
         <div>
-            <h2>Pie Chart Summary</h2>
+           <!-- <h2>Pie Chart Summary</h2>
             <asp:Chart ID="PieChart" runat="server" Width="600px" Height="400px">
                 <ChartAreas>
                     <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
@@ -25,7 +25,7 @@
                 <Legends>
                     <asp:Legend Name="Legend1"></asp:Legend>
                 </Legends>
-            </asp:Chart>
+            </asp:Chart>-->
         </div>  
 
     </form>
