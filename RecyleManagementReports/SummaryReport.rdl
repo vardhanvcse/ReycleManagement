@@ -14,7 +14,7 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="dsSummary">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=.;Initial Catalog=RecycleManagement</ConnectString>
@@ -25,9 +25,9 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="dsSummaryReport">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
+        <DataSourceName>dsSummary</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>SummaryReport_Get</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -47,6 +47,23 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="dsPieChart">
+      <Query>
+        <DataSourceName>dsSummary</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>PIEChartReport_Get</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="material_name">
+          <DataField>material_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="weight_in_lbs">
+          <DataField>weight_in_lbs</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -59,11 +76,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Summary Report
+                    <Value>Reporting: Summary Table
 </Value>
                     <Style>
-                      <FontFamily>Segoe UI Light</FontFamily>
-                      <FontSize>24pt</FontSize>
+                      <FontFamily>times New Roman</FontFamily>
+                      <FontSize>22pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -363,7 +380,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>dsSummaryReport</DataSetName>
             <Top>0.49944in</Top>
             <Left>0.23833in</Left>
             <Height>0.5in</Height>
