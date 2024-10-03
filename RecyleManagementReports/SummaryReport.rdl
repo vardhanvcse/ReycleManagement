@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-10-03T19:12:47.4515893Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-03T19:23:33.8748145Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -28,45 +28,8 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>(SELECT 
-    convert(nvarchar,DATENAME(MONTH,sale_date)) +'-'+ convert(nvarchar,YEAR(sale_date)) AS collectiondate,
-    SUM(revenue) AS totalweight  ,'Recycle Revenue($)' as material_name
-	
-FROM 
-    recycling_revenue recrev inner join material mat on mat.material_id = recrev.material_id 	
-	GROUP BY 
-  YEAR(sale_date),sale_date)
-
-union
-
-(SELECT 
-    convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
-    SUM(weight_in_lbs) AS totalweight ,mat.material_name
-	
-FROM 
-    recycling_collection rec inner join material mat on mat.material_id = rec.material_id GROUP BY 
-  YEAR(collection_date), collection_date ,mat.material_name)  
-
-union
-
-
-(SELECT 
-    convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
-    SUM(weight_in_lbs) AS totalweight  ,'Total Recycled lbs.' as material_name
-	
-FROM 
-    recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 
-	  WHERE mat.material_name NOT IN ('FoodWaste','LandFill')
-	GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)))
-
-union
-
-(SELECT 
-    convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
-    SUM(weight_in_lbs) AS totalweight  ,'Total Waste Generated lbs.' as material_name	
-FROM 
-    recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 	  
-	GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)))</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>SummaryReport_Get</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -76,7 +39,7 @@ FROM
         </Field>
         <Field Name="totalweight">
           <DataField>totalweight</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="material_name">
           <DataField>material_name</DataField>
