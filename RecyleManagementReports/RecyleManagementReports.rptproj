@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Report Include="PieChartWasteByType.rdl" />
+    <Report Include="ReportingGraphLandFillFoodWasteRecycling.rdl" />
     <Report Include="ReportingGraphRecyclables.rdl" />
     <Report Include="SummaryReport.rdl" />
   </ItemGroup>
