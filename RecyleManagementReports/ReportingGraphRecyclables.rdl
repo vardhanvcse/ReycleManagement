@@ -35,7 +35,7 @@
       <Fields>
         <Field Name="collectiondate">
           <DataField>collectiondate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="totalweight">
           <DataField>totalweight</DataField>
@@ -95,7 +95,7 @@
                       <Value>=Fields!collectiondate.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!collectiondate.Value</Label>
+                  <Label>=CDate(Fields!collectiondate.Value).ToString("MM/yyyy")</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -126,6 +126,8 @@
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>

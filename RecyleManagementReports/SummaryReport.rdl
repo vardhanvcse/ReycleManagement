@@ -248,6 +248,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."
                   <SortExpressions>
                     <SortExpression>
                       <Value>=Fields!collectiondate.Value</Value>
+                      <Direction>Descending</Direction>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
