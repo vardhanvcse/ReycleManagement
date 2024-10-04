@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-10-03T21:38:44.3699457Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-03T22:02:43.9465884Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -111,7 +111,7 @@
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <UseValueAsLabel>true</UseValueAsLabel>
+                        <Label>#PERCENT (#VALY)</Label>
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
