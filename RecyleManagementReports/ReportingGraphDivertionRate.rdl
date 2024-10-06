@@ -9,37 +9,71 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-10-03T22:02:43.9465884Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-06T02:53:51.8718897Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="DataSource1">
+    <DataSource Name="dsReportingGraphDivertionRate">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=.;Initial Catalog=RecycleManagement</ConnectString>
         <IntegratedSecurity>true</IntegratedSecurity>
       </ConnectionProperties>
       <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>ba0a9eb3-ab24-437e-a46f-aa40ad9de0fa</rd:DataSourceID>
+      <rd:DataSourceID>bddef7e9-5c0c-44c4-b66a-6150d472ce75</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsPieChartWasteManagement">
+    <DataSet Name="dsGraphDivertionRate">
       <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>PIEChartReport_Get</CommandText>
+        <DataSourceName>dsReportingGraphDivertionRate</DataSourceName>
+        <CommandText>-- Insert statements for procedure here
+	DECLARE @CollectionInformation Table(collectiondate nvarchar(50),totalweight float,material_name nvarchar(100));
+
+	INSERT INTO @CollectionInformation(collectiondate,totalweight,material_name) (
+	(SELECT 
+			convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
+			SUM(weight_in_lbs) AS totalweight  ,'Total Waste Generated lbs.' as material_name	
+		FROM 
+			recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 	  
+			GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)))
+			
+	   union
+
+	   (SELECT 
+			convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)) AS collectiondate,
+			SUM(weight_in_lbs) AS totalweight  ,'Total Waste Diverted lbs.' as material_name	
+		FROM 
+			land_fill_expense  	  
+			GROUP BY convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)))
+			);		
+
+		INSERT INTO @CollectionInformation
+		SELECT T1.collectiondate,(t1.totalweight/t2.totalweight)*100,'Waste Diversion Rate %' FROM @CollectionInformation T1 join @CollectionInformation T2 on 
+		t1.collectiondate = t2.collectiondate where t1.material_name = 'Total Waste Diverted lbs.'
+		AND T2.material_name = 'Total Waste Generated lbs.';
+			
+
+		SELECT CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATE) AS collectiondate,
+	    totalweight,material_name FROM @CollectionInformation
+		WHERE material_name ='Waste Diversion Rate %'
+		ORDER BY   
+		CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATE) ASC;</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
+        <Field Name="collectiondate">
+          <DataField>collectiondate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="totalweight">
+          <DataField>totalweight</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
         <Field Name="material_name">
           <DataField>material_name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="weight_in_lbs">
-          <DataField>weight_in_lbs</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -55,9 +89,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Reporting: Pie Chart - Waste by Type</Value>
+                    <Value>ReportingGraph: DivertionRate</Value>
                     <Style>
-                      <FontFamily>TImes New Roman</FontFamily>
+                      <FontFamily>times New Roman</FontFamily>
                       <FontSize>24pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -68,7 +102,7 @@
             </Paragraphs>
             <rd:DefaultName>textbox1</rd:DefaultName>
             <Height>0.43in</Height>
-            <Width>6.35417in</Width>
+            <Width>5in</Width>
             <Style>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
@@ -76,11 +110,28 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Chart Name="Chart2">
+          <Chart Name="Chart1">
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="Chart2_CategoryGroup">
+                  <Group Name="Chart1_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!collectiondate.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!collectiondate.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=CDate(Fields!collectiondate.Value).ToString("MM/yyyy")</Label>
+                </ChartMember>
+              </ChartMembers>
+            </ChartCategoryHierarchy>
+            <ChartSeriesHierarchy>
+              <ChartMembers>
+                <ChartMember>
+                  <Group Name="Chart1_SeriesGroup">
                     <GroupExpressions>
                       <GroupExpression>=Fields!material_name.Value</GroupExpression>
                     </GroupExpressions>
@@ -93,35 +144,29 @@
                   <Label>=Fields!material_name.Value</Label>
                 </ChartMember>
               </ChartMembers>
-            </ChartCategoryHierarchy>
-            <ChartSeriesHierarchy>
-              <ChartMembers>
-                <ChartMember>
-                  <Label>weight in lbs</Label>
-                </ChartMember>
-              </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="weight_in_lbs">
+                <ChartSeries Name="totalweight">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Fields!weight_in_lbs.Value</Y>
+                        <Y>=Sum(Fields!totalweight.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
-                        <Label>#PERCENT (#VALY)</Label>
+                        <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
                       </ChartDataLabel>
                       <Style />
                       <ChartMarker>
+                        <Type>Auto</Type>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
-                  <Type>Shape</Type>
+                  <Type>Line</Type>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -367,9 +412,6 @@
                     </ChartAxisScaleBreak>
                   </ChartAxis>
                 </ChartValueAxes>
-                <ChartThreeDProperties>
-                  <Enabled>true</Enabled>
-                </ChartThreeDProperties>
                 <Style>
                   <BackgroundColor>#00ffffff</BackgroundColor>
                   <BackgroundGradientType>None</BackgroundGradientType>
@@ -382,6 +424,7 @@
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>8pt</FontSize>
                 </Style>
+                <Position>TopLeft</Position>
                 <ChartLegendTitle>
                   <Caption />
                   <Style>
@@ -394,7 +437,7 @@
                 <ColumnSeparatorColor>Black</ColumnSeparatorColor>
               </ChartLegend>
             </ChartLegends>
-            <Palette>SemiTransparent</Palette>
+            <Palette>Pacific</Palette>
             <ChartBorderSkin>
               <Style>
                 <BackgroundColor>Gray</BackgroundColor>
@@ -411,11 +454,11 @@
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
             </ChartNoDataMessage>
-            <DataSetName>dsPieChartWasteManagement</DataSetName>
-            <Top>0.54389in</Top>
-            <Left>0.43278in</Left>
-            <Height>2.47917in</Height>
-            <Width>5.51389in</Width>
+            <DataSetName>dsGraphDivertionRate</DataSetName>
+            <Top>0.67583in</Top>
+            <Left>0.18278in</Left>
+            <Height>2.23611in</Height>
+            <Width>7.13194in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -427,15 +470,12 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>3.23833in</Height>
+        <Height>3.2975in</Height>
         <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BackgroundColor>LightGrey</BackgroundColor>
+          <BackgroundColor>LightSteelBlue</BackgroundColor>
         </Style>
       </Body>
-      <Width>7.13194in</Width>
+      <Width>7.96528in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -454,5 +494,5 @@
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>76a067ca-8234-49b7-afb8-bb069260b257</rd:ReportID>
+  <rd:ReportID>283a956a-6373-43c6-bbf5-ed3354066306</rd:ReportID>
 </Report>
