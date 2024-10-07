@@ -342,7 +342,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1.40972in</Size>
+                    <Size>1.82417in</Size>
                     <CellContents>
                       <Textbox Name="material_name">
                         <CanGrow>true</CanGrow>
@@ -385,7 +385,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."
             <Top>0.49944in</Top>
             <Left>0.23833in</Left>
             <Height>0.5in</Height>
-            <Width>4.34722in</Width>
+            <Width>4.76167in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
