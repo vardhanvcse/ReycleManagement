@@ -3,8 +3,134 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-</head>
-<body>
+<style> 
+  
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
 
-</body>
+            .header {
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .sidebar {
+                width: 250px;
+                height: 100vh;
+                background-color: #333;
+                position: fixed;
+                top: 0;
+                left: 0;
+                padding-top: 60px;
+            }
+
+                .sidebar a {
+                    padding: 15px;
+                    text-decoration: none;
+                    color: white;
+                    display: block;
+                    text-align: center;
+                }
+
+                    .sidebar a:hover {
+                        background-color: #575757;
+                    }
+
+            .content {
+                margin-left: 260px;
+                padding: 20px;
+            }
+
+            .stats {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .stat-box {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                width: 30%;
+                text-align: center;
+            }
+
+                .stat-box h3 {
+                    margin: 10px 0;
+                }
+
+            .recent-activity {
+                margin-top: 20px;
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+
+            .activity {
+                border-bottom: 1px solid #f4f4f4;
+                padding: 10px 0;
+            }
+
+                .activity:last-child {
+                    border-bottom: none;
+                }
+        </style>
+    </head>
+    <body>
+
+        <div class="header">
+            <h1>Recycle Dashboard</h1>
+            <p>Track your recycling efforts and make a difference!</p>
+        </div>
+
+        <div class="sidebar">
+            <a href="#home">Dashboard</a>
+            <a href="#plastic">Plastic Recycling</a>
+            <a href="#paper">Paper Recycling</a>
+            <a href="#metal">Metal Recycling</a>
+            <a href="#glass">Glass Recycling</a>
+            <a href="#profile">Profile</a>
+        </div>
+
+        <div class="content">
+            <h2>Overview</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>Total Recycled</h3>
+                    <p>500 kg</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Plastic</h3>
+                    <p>120 kg</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Paper</h3>
+                    <p>200 kg</p>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity">
+                    <p>Recycled 10 kg of plastic bottles</p>
+                    <span>2 hours ago</span>
+                </div>
+                <div class="activity">
+                    <p>Recycled 15 kg of paper</p>
+                    <span>Yesterday</span>
+                </div>
+                <div class="activity">
+                    <p>Recycled 5 kg of metal cans</p>
+                    <span>3 days ago</span>
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>
