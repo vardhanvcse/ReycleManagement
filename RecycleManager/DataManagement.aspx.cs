@@ -2,6 +2,7 @@
 using RecycleManager.helpers;
 using RecycleManager.Models;
 using System;
+using System.Configuration;
 using System.Linq;
 
 namespace RecycleManager
@@ -13,6 +14,7 @@ namespace RecycleManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            VehicleMaintainanceDetails.Visible = bool.Parse(ConfigurationManager.AppSettings["IsVehicleMgtVisible"]);
             if (Session[Enums.WebAttributes.LoginSession.ToString()] == null)
             {
                 Response.Redirect("Login.aspx");
