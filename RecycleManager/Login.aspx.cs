@@ -1,7 +1,6 @@
 ﻿using RecycleManager.BusinessAccess;
 using RecycleManager.helpers;
 using System;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace RecycleManager
