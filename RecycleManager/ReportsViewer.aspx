@@ -67,7 +67,7 @@
                                         <ItemTemplate>
                                             <li class="list-group-item">
                                                 <a href='<%# Eval("Url") %>' target="_blank">
-                                                    <i class="fas fa-external-link-alt"></i> <%# Eval("Title") %>
+                                                    <i class="fas fa-external-link-alt"></i> <%# Eval("ReportName") %>
                                                 </a>
                                             </li>
                                         </ItemTemplate>

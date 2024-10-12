@@ -1,6 +1,8 @@
 ﻿using RecycleManager.helpers;
+using RecycleManager.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace RecycleManager
 {
@@ -15,27 +17,20 @@ namespace RecycleManager
 
             if (!IsPostBack)
             {
-                // Sample list of URLs
-                var sampleLinks = new List<LinkItem>
+                var reportLinks = new List<ReportLink>
             {
-                new LinkItem { Title = "Summary Report", Url = "https://example.com/sample1" },
-                new LinkItem { Title = "PieChart Waste by Type Report", Url = "https://example.com/sample2" },
-                new LinkItem { Title = "Recyclables Chart Report", Url = "https://example.com/sample3" },
-                new LinkItem { Title = "LandFill FoodWaste Recycling Chart Report", Url = "https://example.com/sample3" },
-                new LinkItem { Title = "Divertion Rate Chart Report", Url = "https://example.com/sample3" },
-                new LinkItem { Title = "Revenue Report", Url = "https://example.com/sample3" }
+                new ReportLink { ReportName = "Summary Report", Url = ConfigurationManager.AppSettings["Summary_Report"] },
+                new ReportLink { ReportName = "Waste By Type PieChart Report", Url = ConfigurationManager.AppSettings["PieChart_Waste_by_Type_Report"] },
+                new ReportLink { ReportName = "Recyclables Chart Report", Url =  ConfigurationManager.AppSettings["Recyclables_Chart_Report"] },
+                new ReportLink { ReportName = "LandFill FoodWaste Recycling Chart Report", Url =  ConfigurationManager.AppSettings["LandFill_FoodWaste_Recycling_Chart_Report"]},
+                new ReportLink { ReportName = "Divertion Rate Chart Report", Url =  ConfigurationManager.AppSettings["Divertion_Rate_Chart_Report"] },
+                new ReportLink { ReportName = "Revenue Report", Url =  ConfigurationManager.AppSettings["Revenue_Report"] }
             };
-
-                // Bind the list to the Repeater control
-                linksRepeater.DataSource = sampleLinks;
+                
+                linksRepeater.DataSource = reportLinks;
                 linksRepeater.DataBind();
             }
         }
-
-        public class LinkItem
-        {
-            public string Title { get; set; }
-            public string Url { get; set; }
-        }
+       
     }
 }
