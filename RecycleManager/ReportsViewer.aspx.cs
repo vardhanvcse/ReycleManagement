@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecycleManager.helpers;
+using System;
 using System.Collections.Generic;
 
 namespace RecycleManager
@@ -7,6 +8,11 @@ namespace RecycleManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session[Enums.WebAttributes.LoginSession.ToString()] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             if (!IsPostBack)
             {
                 // Sample list of URLs
