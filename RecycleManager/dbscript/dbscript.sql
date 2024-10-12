@@ -115,7 +115,7 @@ GO
 CREATE TABLE [dbo].[land_fill_expense](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[land_fill_date] [datetime] NULL,
-	[weight_in_lbs] [decimal](18, 0) NULL,
+	[weight_in_lbs] [decimal](18, 2) NULL,
 	[expense] [decimal](10, 2) NULL,
 	[hauler] [nvarchar](50) NULL,
 PRIMARY KEY CLUSTERED 
@@ -164,7 +164,7 @@ CREATE TABLE [dbo].[recycling_collection](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[collection_date] [date] NULL,
 	[material_id] [int] NULL,
-	[weight_in_lbs] [decimal](18, 0) NULL,
+	[weight_in_lbs] [decimal](18, 2) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -180,7 +180,7 @@ CREATE TABLE [dbo].[recycling_revenue](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[sale_date] [datetime] NULL,
 	[material_id] [int] NULL,
-	[weight_in_lbs] [decimal](18, 0) NULL,
+	[weight_in_lbs] [decimal](18, 2) NULL,
 	[revenue] [decimal](10, 2) NULL,
 	[buyer] [nvarchar](50) NULL,
 PRIMARY KEY CLUSTERED 
@@ -287,10 +287,10 @@ CREATE TABLE [dbo].[vehicle_maintainance_costs](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[maintainance_date] [date] NULL,
 	[vechicle_id] [nvarchar](50) NULL,
-	[current_milage] [decimal](18, 0) NULL,
-	[fuel_usage_gallons] [decimal](18, 0) NULL,
-	[fuel_cost_dollars] [decimal](18, 0) NULL,
-	[maintainance_cost_dollars] [decimal](18, 0) NULL,
+	[current_milage] [decimal](18, 2) NULL,
+	[fuel_usage_gallons] [decimal](18, 2) NULL,
+	[fuel_cost_dollars] [decimal](18, 2) NULL,
+	[maintainance_cost_dollars] [decimal](18, 2) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

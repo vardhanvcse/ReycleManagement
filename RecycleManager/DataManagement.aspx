@@ -82,7 +82,7 @@
                                             <br /><br />
 
                                             <span class="name">Weight of Material Waste(lbs)</span>
-                                            <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Food Waste Weight in lbs"  runat="server" />
+                                            <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px" Step="0.1" CausesValidation="false" placeholder="Food Waste Weight in lbs"  runat="server" />
                                             <br /><br />
                                              <br /><br />
                                             <asp:Button ID="btnAddMaterialWasteCollectionDetails" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddMaterialWasteCollectionDetails_Click" Text="Add Material Collection" Width="175px" />
@@ -109,11 +109,11 @@
                                                 <br /><br />
 
                                                 <span class="name">Weight of Material Sold(lbs)</span>
-                                                <asp:TextBox ID="txtRecycleRevenueWeightOfMaterialSoldlbs" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Weight Of Material Sold in lbs"  runat="server" />
+                                                <asp:TextBox ID="txtRecycleRevenueWeightOfMaterialSoldlbs" TextMode="Number" Step="0.1" Width="350px"  CausesValidation="false" placeholder="Weight Of Material Sold in lbs"  runat="server" />
                                                 <br /><br />
                                                 <br /><br />
                                                 <span class="name">Revenue of Sale(in $)</span>
-                                                <asp:TextBox ID="txtRevenueInDollars" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Revenue of sale in Dollars"  runat="server" />
+                                                <asp:TextBox ID="txtRevenueInDollars" TextMode="Number" Width="350px"  Step="0.1"  CausesValidation="false" placeholder="Revenue of sale in Dollars"  runat="server" />
                                                 <br /><br />
                                                 <br />
                                                 <span class="name">Buyer</span>
@@ -138,11 +138,11 @@
                                                 <br /><br />                                               
 
                                                 <span class="name">Land Fill Weight(lbs)</span>
-                                                <asp:TextBox ID="txtLandFillWeight" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Weight Of Land Fill Waste lbs"  runat="server" />
+                                                <asp:TextBox ID="txtLandFillWeight" TextMode="Number" Step="0.1" Width="350px"  CausesValidation="false" placeholder="Weight Of Land Fill Waste lbs"  runat="server" />
                                                 <br /><br />
                                                 <br /><br />
                                                 <span class="name">Landfill Expense(in $)</span>
-                                                <asp:TextBox ID="txtLandFillExpense" TextMode="Number" Width="350px"  CausesValidation="false" placeholder="Landfill Expense Spent($)"  runat="server" />
+                                                <asp:TextBox ID="txtLandFillExpense" TextMode="Number" Step="0.1" Width="350px"  CausesValidation="false" placeholder="Landfill Expense Spent($)"  runat="server" />
                                                 <br /><br />
                                                 <br />
                                                 <span class="name">Hauler</span>
