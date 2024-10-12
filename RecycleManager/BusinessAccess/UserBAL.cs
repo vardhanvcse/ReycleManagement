@@ -26,6 +26,7 @@ namespace RecycleManager.BusinessAccess
                     user.User_Name = (string)row["user_name"];
                     user.User_Mail_Id = (string)row["user_mail_id"];
                     user.Phone_Num = (string)row["phone_num"];
+                    user.Role_Name = (string)row["role_name"]; 
                     users.Add(user);
                 }
             }

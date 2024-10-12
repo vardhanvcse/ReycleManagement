@@ -15,6 +15,15 @@ namespace RecycleManager
     {
 
         /// <summary>
+        /// userMgtPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userMgtPanel;
+
+        /// <summary>
         /// lblUsers control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace RecycleManager
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// reportsPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reportsPanel;
 
         /// <summary>
         /// Label3 control.

@@ -2,6 +2,7 @@
 using RecycleManager.helpers;
 using System;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace RecycleManager
 {
@@ -21,15 +22,20 @@ namespace RecycleManager
             {
                 lblError.Visible = false;
                 LoginBAL loginBAL = new LoginBAL();
+                UserBAL userBAL = new UserBAL();
                 UserLogin login = new UserLogin()
                 {
                     UserName = txtUsername.Text,
                     Password = txtPassword.Text
                 };
-                var isLoginSuccess = loginBAL.VerifyUserLogin(login);
+                int userLoginId;
+                var isLoginSuccess = loginBAL.VerifyUserLogin(login,out userLoginId);
                 if (isLoginSuccess)
                 {
                     Session[Enums.WebAttributes.LoginSession.ToString()] = true;
+                    Session[Enums.WebAttributes.UserLoginId.ToString()] = userLoginId;
+                    var user = userBAL.GetUsers(userLoginId);
+                    Session[Enums.WebAttributes.UserRole.ToString()] = user.First().Role_Name;
                     Response.Redirect("RecycleManagementDesk.aspx");
                 }
                 else

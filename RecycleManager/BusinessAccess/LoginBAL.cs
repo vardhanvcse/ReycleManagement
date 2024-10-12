@@ -8,7 +8,7 @@ namespace RecycleManager.BusinessAccess
     {
         public LoginDAL dal = new LoginDAL();
 
-        public bool VerifyUserLogin(UserLogin user)
+        public bool VerifyUserLogin(UserLogin user,out int userLoginId)
         {
             var res = dal.GetUserIdbyName(user);
             int userId;
@@ -17,9 +17,9 @@ namespace RecycleManager.BusinessAccess
             {
 
                 userId = (int)res.Item1.Tables[0].Rows[0]["user_id"];
+                userLoginId = userId;
                 user.Id = userId;
                 if (userId < 0) { throw new Exception("Non Existant user"); }
-
             }
             else
             { throw new Exception("Non Existant user"); }

@@ -5,6 +5,14 @@
         public enum WebAttributes
         {
             LoginSession,
+            UserLoginId,
+            UserRole,
+        }
+
+        public enum Roles
+        {
+            admin,
+            user,
         }
     }
 }

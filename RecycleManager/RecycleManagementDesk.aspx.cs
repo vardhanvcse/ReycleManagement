@@ -14,6 +14,19 @@ namespace RecycleManager
             {
                 Response.Redirect("Login.aspx");
             }
+            else
+            {
+                if (Session[Enums.WebAttributes.UserRole.ToString()] != null &&
+                    Session[Enums.WebAttributes.UserRole.ToString()].ToString() != Enums.Roles.admin.ToString())
+                {
+                    userMgtPanel.Visible = false;
+                    reportsPanel.Visible = false;
+                }
+                else if (Session[Enums.WebAttributes.UserRole.ToString()] != null ){
+                    userMgtPanel.Visible = true;
+                    reportsPanel.Visible = true;
+                }
+            }
 
             UserBAL userBal = new UserBAL();
             lblUsers.Text = userBal.GetUsers(-100).Count.ToString();

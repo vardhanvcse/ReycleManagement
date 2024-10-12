@@ -19,7 +19,7 @@
                 
                 <div >
                     <table width="500" ><tr><td width="25%">
-                    <div  class="dashboard">
+                    <div  class="dashboard" id="userMgtPanel" runat="server">
                          <h1>
                              <asp:Label ForeColor="Purple" ID="lblUsers" runat="server" Text="0"></asp:Label>
                          </h1>
@@ -53,7 +53,7 @@
                     </td>
 
                     <td width="40%">
-                    <div  class="dashboard">
+                    <div  class="dashboard" id="reportsPanel" runat="server">
                         
                         <h1> <asp:Label ForeColor="Purple" ID="Label3" runat="server" Text=" "></asp:Label>
                              <asp:Label ForeColor="Purple" ID="Label4" runat="server" Text=" "></asp:Label>
@@ -65,11 +65,7 @@
                     </div>
 
                     </td>
-
-
-
-
-                                        </tr>
+                     </tr>
                     </table>
 
                 </div>
