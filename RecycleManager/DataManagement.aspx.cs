@@ -25,7 +25,7 @@ namespace RecycleManager
                 VehicleMaintainanceDetails.BackColor = System.Drawing.Color.Gray;
                 RecyclingCollectionDeatils.BorderColor = System.Drawing.Color.LightGray;
                 RecyclingRevenue.BorderColor = System.Drawing.Color.LightGray;
-                MainView.ActiveViewIndex = 0;
+                MainView.ActiveViewIndex = 1;
                 var vehicles = vehicleBAL.GetVehicles(string.Empty);
                 var materials = materialBal.GetMaterials(-1);
                 vehicles.ToList().ForEach(x => {

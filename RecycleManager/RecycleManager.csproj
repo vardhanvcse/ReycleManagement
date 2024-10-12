@@ -211,6 +211,7 @@
     <Content Include="images\RecycleManagementFlow.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="RecycleManagementDesk.aspx" />
+    <Content Include="ReportsViewer.aspx" />
     <Content Include="ResourceManagement.aspx" />
     <Content Include="RevenueManagement.aspx" />
     <Content Include="styles\RecycleDashboard.html" />
@@ -288,6 +289,13 @@
     </Compile>
     <Compile Include="RecycleManagementDesk.aspx.designer.cs">
       <DependentUpon>RecycleManagementDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsViewer.aspx.cs">
+      <DependentUpon>ReportsViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsViewer.aspx.designer.cs">
+      <DependentUpon>ReportsViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResourceManagement.aspx.cs">
       <DependentUpon>ResourceManagement.aspx</DependentUpon>

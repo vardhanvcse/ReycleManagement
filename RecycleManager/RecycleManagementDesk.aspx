@@ -28,7 +28,7 @@
                             <button type="button" class="btn-view"  >View All</button>
                         </a>
                     </div>
-                    </td><td width="25%">
+                    </td><td width="35%">
                     <div id="divVehicleMgt" class="dashboard" runat="server" >
                          <h1>
                              <asp:Label ForeColor="Purple" ID="lblVehicles" runat="server" Text="0"></asp:Label>
@@ -47,6 +47,20 @@
                         <span class="dashboard-title">Data Management</span><br />
                         <a href="DataManagement.aspx">
                             <button type="button"   class="btn-view">Data Entry Console</button>
+                        </a>
+                    </div>
+
+                    </td>
+
+                    <td width="40%">
+                    <div  class="dashboard">
+                        
+                        <h1> <asp:Label ForeColor="Purple" ID="Label3" runat="server" Text=" "></asp:Label>
+                             <asp:Label ForeColor="Purple" ID="Label4" runat="server" Text=" "></asp:Label>
+                        </h1>
+                        <span class="dashboard-title">Reports Viewer</span><br />
+                        <a href="ReportsViewer.aspx">
+                            <button type="button"   class="btn-view">Reports Console</button>
                         </a>
                     </div>
 
