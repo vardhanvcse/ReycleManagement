@@ -209,6 +209,11 @@ namespace RecycleManager
                        (!txtLandFillHauler.Text.Any() ? ("****Provide the Hauler information*****" + "<br/>") : string.Empty);
             }
         }
+
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 
 

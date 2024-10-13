@@ -203,6 +203,7 @@
   <ItemGroup>
     <Content Include="AddUser.aspx" />
     <Content Include="AddVehicle.aspx" />
+    <Content Include="css\signout.css" />
     <Content Include="css\style.css" />
     <Content Include="DataManagement.aspx" />
     <Content Include="dbscript\dbscript.sql" />
@@ -214,6 +215,7 @@
     <Content Include="ReportsViewer.aspx" />
     <Content Include="ResourceManagement.aspx" />
     <Content Include="RevenueManagement.aspx" />
+    <Content Include="SignOut.aspx" />
     <Content Include="styles\RecycleDashboard.html" />
     <Content Include="styles\StylesRef.css" />
     <Content Include="styles\WasteManagement.aspx" />
@@ -311,6 +313,13 @@
     </Compile>
     <Compile Include="RevenueManagement.aspx.designer.cs">
       <DependentUpon>RevenueManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="styles\WasteManagement.aspx.cs">
       <DependentUpon>WasteManagement.aspx</DependentUpon>

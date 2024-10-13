@@ -11,7 +11,7 @@ namespace RecycleManager
 {
 
 
-    public partial class UserManagement
+    public partial class SignOut
     {
 
         /// <summary>
@@ -24,30 +24,21 @@ namespace RecycleManager
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnLogin control.
+        /// HomeLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.HyperLink HomeLink;
 
         /// <summary>
-        /// GVUsers control.
+        /// LoginLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVUsers;
-
-        /// <summary>
-        /// sdsUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sdsUsers;
+        protected global::System.Web.UI.WebControls.HyperLink LoginLink;
     }
 }

@@ -12,7 +12,14 @@
     <div class="wrapper">
         <h1>Recycle Management Desk</h1>
     </div>  
- </header>      
+ </header>   
+    <form id="form1" runat="server" style="background-color:white">
+    <div class="dropdown">
+      <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log Out"  />
+      <div class="dropdown-content">       
+          <a href="SignOut.aspx">Sign Out</a>
+      </div>
+  </div>
            <div >           
             <div style="color:purple">
                 <h3>Dashboard</h3>
@@ -72,7 +79,7 @@
             </div>
                 
         </div>
-
+        </form>
       <footer class="footer" style="height:50px">
           <div class="wrapper" >
               <p>&copy; Recycle Management System. All rights reserved 2024.</p>

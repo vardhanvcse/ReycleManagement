@@ -9,12 +9,21 @@
     <header class="header">
         <div class="wrapper">
             <h1>Recycle Management System</h1>
-        </div>
+            <%--<asp:Button ID="btnSignOut" runat="server" CssClass="signout-button" Text="Sign Out" OnClick="btnSignOut_Click" />--%>   
+        </div>   
     </header>
+          
     <div class="main">
     <div class="wrapper">           
     <div class="useradd-details">
+        
     <form id="form1" runat="server" style="background-color:white">
+          <div class="dropdown">
+                <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log Out"  />
+                <div class="dropdown-content">       
+                    <a href="SignOut.aspx">Sign Out</a>
+                </div>
+            </div>
         <table width="100%" align="center">
             <tr>
                 <td>

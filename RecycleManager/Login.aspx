@@ -13,14 +13,7 @@
           </div>  
        </header>   
     
-    <form id="form1" runat="server">
-        <div class="dropdown">
-            <asp:Button ID="Button1" runat="server" CssClass="login-button" Text="Log In" OnClick="btnLogin_Click" />
-            <div class="dropdown-content">
-                <a href="Login.aspx">Login</a>
-                <a href="SignOut.aspx">Sign Out</a>
-            </div>
-        </div>
+    <form id="form1" runat="server">        
     <style>
         body {
             background-image: url('https://images.unsplash.com/photo-1532073122101-df0529d2b89d');
