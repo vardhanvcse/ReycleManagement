@@ -46,7 +46,7 @@
           </div>  
        </header>   
 
-        <div class="main">
+        <div class="main" style="padding: 50px; background-color: #f0f8ff; border-radius: 10px;">
         <div class="wrapper">
             
             

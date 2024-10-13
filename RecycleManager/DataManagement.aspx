@@ -13,11 +13,11 @@
         </div>   
     </header>
           
-    <div class="main">
+    <div class="main" style="padding: 50px; background-color: #f0f8ff; border-radius: 10px;">
     <div class="wrapper">           
     <div class="useradd-details">
         
-    <form id="form1" runat="server" style="background-color:white">
+    <form id="form1" runat="server">
           <div class="dropdown">
                 <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log Out"  />
                 <div class="dropdown-content">       
