@@ -13,7 +13,7 @@
      <link rel="stylesheet" type="text/css" href="css/login.css"/>    
     <form id="form1" runat="server">        
    
-    <div class="login-container">
+    <div class="login-container" style="padding: 50px; background-color: azure; border-radius: 10px;">
         <h2>Login</h2>
         <asp:TextBox ID="txtUsername" runat="server" Placeholder="Username" CssClass="form-control" />
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Placeholder="Password" CssClass="form-control" />

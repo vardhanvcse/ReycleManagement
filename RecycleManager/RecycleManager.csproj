@@ -204,6 +204,7 @@
     <Content Include="AddUser.aspx" />
     <Content Include="AddVehicle.aspx" />
     <Content Include="css\login.css" />
+    <Content Include="css\reports.css" />
     <Content Include="css\signout.css" />
     <Content Include="css\style.css" />
     <Content Include="DataManagement.aspx" />
