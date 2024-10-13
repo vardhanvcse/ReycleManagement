@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-10-09T15:37:22.4337527Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-13T18:37:46.2946237Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -151,7 +151,7 @@
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!totalweight.Value)</Y>
+                        <Y>=Round(Fields!totalweight.Value, 2)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
