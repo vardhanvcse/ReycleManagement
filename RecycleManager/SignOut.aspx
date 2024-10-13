@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Out - Recycle Management</title>
-    <link href="css/SignOut.css" rel="stylesheet" />
+    <link href="css/signout.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
