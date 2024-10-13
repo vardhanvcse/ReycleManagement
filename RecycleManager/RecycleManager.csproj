@@ -210,8 +210,10 @@
     <Content Include="DataManagement.aspx" />
     <Content Include="dbscript\dbscript.sql" />
     <Content Include="Default.aspx" />
-    <Content Include="images\RecycleManagement.jpg" />
-    <Content Include="images\RecycleManagementFlow.jpg" />
+    <Content Include="images\facebook-icon.png" />
+    <Content Include="images\linkedin-icon.png" />
+    <Content Include="images\recycling-icon.png" />
+    <Content Include="images\twitter-icon.png" />
     <Content Include="Login.aspx" />
     <Content Include="RecycleManagementDesk.aspx" />
     <Content Include="ReportsViewer.aspx" />
