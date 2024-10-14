@@ -65,6 +65,22 @@ namespace RecycleManager.Test
             // Assert.AreEqual(1, user.Id); // Ensure the user ID was set correctly
         }
 
+        [Test]
+        public void VerifyUserLogin_WhenUserIdIsNegative_ThrowsException()
+        {
+            // Arrange
+            var user = new UserLogin { UserName = "invalidUser" };
+            var userIdDataSet = CreateDataSetWithUserId(-1); // Simulate invalid user ID
+
+            // Stub GetUserIdbyName to return the dataset with a negative user ID
+            _mockDal.Stub(dal => dal.GetUserIdbyName(user)).Return(Tuple.Create(userIdDataSet, true));
+
+            // Act & Assert
+            var ex = Assert.Throws<Exception>(() => _loginBAL.VerifyUserLogin(user, out _));
+            Assert.Equals("Non Existant user", ex.Message);
+        }
+
+
         private DataSet CreateDataSetWithUserId(int userId)
         {
             var dataSet = new DataSet();
