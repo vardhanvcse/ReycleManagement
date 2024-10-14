@@ -80,6 +80,25 @@ namespace RecycleManager.Test
             Assert.Equals("Non Existant user", ex.Message);
         }
 
+        [Test]
+        public void VerifyUserLogin_WhenLoginFails_ReturnsFalse()
+        {
+            // Arrange
+            var user = new UserLogin { UserName = "validUser" };
+            var userIdDataSet = CreateDataSetWithUserId(1); // Simulate user ID 1
+            var loginResultDataSet = CreateDataSetWithLoginResult(0); // Simulate login failure
+
+            // Stub GetUserIdbyName and VerifyUserLogin methods
+            _mockDal.Stub(dal => dal.GetUserIdbyName(user)).Return(Tuple.Create(userIdDataSet, true));
+            _mockDal.Stub(dal => dal.VerifyUserLogin(user)).Return(Tuple.Create(loginResultDataSet, true));
+
+            // Act
+            bool result = _loginBAL.VerifyUserLogin(user, out _);
+
+            // Assert
+            Assert.Equals(false, result);
+        }
+
 
         private DataSet CreateDataSetWithUserId(int userId)
         {
