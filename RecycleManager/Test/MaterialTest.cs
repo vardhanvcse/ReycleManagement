@@ -92,6 +92,49 @@ namespace RecycleManager.Test
             Assert.IsTrue(result);
             _mockMaterialDAL.VerifyAllExpectations();
         }
+        [Test]
+        public void GetMaterials_ShouldReturnEmptyList_WhenDataDoesNotExist()
+        {
+            // Arrange
+            int materialId = 1;
+            _mockMaterialDAL.Expect(dal => dal.GetMaterials(materialId)).Return((null, false));
 
+            // Act
+            var result = _materialBAL.GetMaterials(materialId);
+
+            // Assert
+            Assert.IsEmpty(result);
+            _mockMaterialDAL.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void AddMaterialCollection_ShouldReturnTrue_WhenCollectionIsAddedSuccessfully()
+        {
+            // Arrange
+            var materialCollection = new MaterialCollection { /* initialize properties */ };
+            _mockMaterialDAL.Expect(dal => dal.AddRecyclingCollection(materialCollection)).Return(true);
+
+            // Act
+            var result = _materialBAL.AddMaterialCollection(materialCollection);
+
+            // Assert
+            Assert.IsTrue(result);
+            _mockMaterialDAL.VerifyAllExpectations();
+        }
+
+        [Test]
+        public void AddRecyclingRevenue_ShouldReturnTrue_WhenRevenueIsAddedSuccessfully()
+        {
+            // Arrange
+            var recyclingRevenue = new RecyclingRevenue { /* initialize properties */ };
+            _mockMaterialDAL.Expect(dal => dal.AddRecyclingRevenue(recyclingRevenue)).Return(true);
+
+            // Act
+            var result = _materialBAL.AddRecyclingRevenue(recyclingRevenue);
+
+            // Assert
+            Assert.IsTrue(result);
+            _mockMaterialDAL.VerifyAllExpectations();
+        }
     }
 }
