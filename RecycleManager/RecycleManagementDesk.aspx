@@ -25,17 +25,8 @@
                 <h3>Dashboard</h3>
                 
                 <div >
-                    <table width="500" ><tr><td width="25%">
-                    <div  class="dashboard" id="userMgtPanel" runat="server">
-                         <h1>
-                             <asp:Label ForeColor="Purple" ID="lblUsers" runat="server" Text="0"></asp:Label>
-                         </h1>
-                        <span class="dashboard-title">Users</span><br />
-                        <a href="UserManagement.aspx">
-                            <button type="button" class="btn-view"  >View All</button>
-                        </a>
-                    </div>
-                    </td><td width="35%">
+                    <table width="600" ><tr>
+                        <td width="30%">
                     <div id="divVehicleMgt" class="dashboard" runat="server" >
                          <h1>
                              <asp:Label ForeColor="Purple" ID="lblVehicles" runat="server" Text="0"></asp:Label>
@@ -58,8 +49,31 @@
                     </div>
 
                     </td>
+                    <td width="25%">
+                    <div  class="dashboard" id="userMgtPanel" runat="server">
+                         <h1>
+                             <asp:Label ForeColor="Purple" ID="lblUsers" runat="server" Text="0"></asp:Label>
+                         </h1>
+                        <span class="dashboard-title">Users</span><br />
+                        <a href="UserManagement.aspx">
+                            <button type="button" class="btn-view"  >View All</button>
+                        </a>
+                    </div>
+                    </td>
 
-                    <td width="40%">
+                    <td width="25%">
+                        <div  class="dashboard" id="materialMgtPanel" runat="server">
+                             <h1>
+                                 <asp:Label ForeColor="Purple" ID="lblMatreials" runat="server" Text="0"></asp:Label>
+                             </h1>
+                            <span class="dashboard-title">Materials</span><br />
+                            <a href="MaterialManagement.aspx">
+                                <button type="button" class="btn-view"  >View All</button>
+                            </a>
+                        </div>
+                        </td>
+
+                    <td width="25%">
                     <div  class="dashboard" id="reportsPanel" runat="server">
                         
                         <h1> <asp:Label ForeColor="Purple" ID="Label3" runat="server" Text=" "></asp:Label>
