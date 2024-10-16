@@ -230,6 +230,7 @@
     </Compile>
     <Compile Include="Test\LoginTest.cs" />
     <Compile Include="Test\MaterialTest.cs" />
+    <Compile Include="Test\RoleTest.cs" />
     <Compile Include="UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
