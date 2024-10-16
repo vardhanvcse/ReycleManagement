@@ -1229,6 +1229,7 @@ insert into material values('Paper-White','Paper-White waste');
 insert into material values('Plastic-PET','Plastic-PET waste');
 insert into material values('Plastic-HDPEColored','Plastic-HDPEColored waste');
 insert into material values('Plastic-HDPENatural','Plastic-HDPENatural waste');
+insert into material values('LandFill','LandFill');
 Go
 
 insert into roles values('admin','Admin Role')
