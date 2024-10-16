@@ -79,6 +79,19 @@ namespace RecycleManager.Test
             Assert.AreEqual("Plastic", result[1].Material_Name);
             _mockMaterialDAL.VerifyAllExpectations();
         }
+        public void AddLandFillExpense_ShouldReturnTrue_WhenExpenseIsAddedSuccessfully()
+        {
+            // Arrange
+            var landFillExpense = new LandFillExpense { /* initialize properties */ };
+            _mockMaterialDAL.Expect(dal => dal.AddLandFillExpense(landFillExpense)).Return(true);
+
+            // Act
+            var result = _materialBAL.AddLandFillExpense(landFillExpense);
+
+            // Assert
+            Assert.IsTrue(result);
+            _mockMaterialDAL.VerifyAllExpectations();
+        }
 
     }
 }
