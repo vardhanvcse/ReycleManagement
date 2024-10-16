@@ -21,15 +21,20 @@ namespace RecycleManager
                 {
                     userMgtPanel.Visible = false;
                     reportsPanel.Visible = false;
+                    materialMgtPanel.Visible = false;
                 }
                 else if (Session[Enums.WebAttributes.UserRole.ToString()] != null ){
                     userMgtPanel.Visible = true;
                     reportsPanel.Visible = true;
+                    materialMgtPanel.Visible = true;
                 }
             }
 
             UserBAL userBal = new UserBAL();
             lblUsers.Text = userBal.GetUsers(-100).Count.ToString();
+
+            MaterailBAL materialBal = new MaterailBAL();
+            lblMatreials.Text = materialBal.GetMaterials(-1).Count.ToString();
 
             VehicleBAL vehicleBal = new VehicleBAL();
             lblVehicles.Text = vehicleBal.GetVehicles(string.Empty).Count.ToString();

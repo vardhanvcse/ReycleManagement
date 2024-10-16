@@ -155,7 +155,7 @@
                                                 <br /><br />
                                                 <br />
                                                 <span class="name">Hauler</span>
-                                                <asp:TextBox ID="txtLandFillHauler" Width="350px"  CausesValidation="false" placeholder="Buyer of the Material Waste"  runat="server" />
+                                                <asp:TextBox ID="txtLandFillHauler" Width="350px"  CausesValidation="false" placeholder="Hauler Information"  runat="server" />
                                                 <br /><br />                                    
                                              
                                                 <asp:Button ID="btnAddLandFillExpense" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddLandFillExpense_Click" Text="Add Recycle Revenue" Width="175px" />
