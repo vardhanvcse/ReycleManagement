@@ -107,7 +107,8 @@ namespace RecycleManager
                 MaterialCollection collectionDetails = new MaterialCollection() {
                     CollectionDate = DateTime.Parse(txtCollectionDate.Text),
                     Material_Name = ddlMaterialWate.SelectedItem.Text,
-                    WeightInLbs = decimal.Parse(txtFoodWasteWeight.Text)
+                    WeightInLbs = decimal.Parse(txtFoodWasteWeight.Text),
+                    User_Id = (int)Session[Enums.WebAttributes.UserLoginId.ToString()],
                 };
                 
                 bool result = materialBal.AddMaterialCollection(collectionDetails);
@@ -142,6 +143,7 @@ namespace RecycleManager
                     WeightInLbs = decimal.Parse(txtRecycleRevenueWeightOfMaterialSoldlbs.Text),
                     RevenueInDollars = decimal.Parse(txtRevenueInDollars.Text),
                     Buyer = txtBuyer.Text.Trim(),
+                    User_Id = (int)Session[Enums.WebAttributes.UserLoginId.ToString()],
                 };
 
                 bool result = materialBal.AddRecyclingRevenue(recyclingRevenue);
@@ -185,7 +187,8 @@ namespace RecycleManager
                     LandfillDate = DateTime.Parse(txtLandFillDate.Text),
                     Expense = decimal.Parse(txtLandFillExpense.Text),
                     Weight = decimal.Parse(txtLandFillWeight.Text),
-                    Hauler = txtLandFillHauler.Text
+                    Hauler = txtLandFillHauler.Text,
+                    User_Id = (int)Session[Enums.WebAttributes.UserLoginId.ToString()],
                 };
 
                 bool result = materialBal.AddLandFillExpense(landFillExpense);

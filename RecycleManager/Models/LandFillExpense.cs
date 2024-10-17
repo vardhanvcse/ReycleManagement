@@ -11,5 +11,6 @@ namespace RecycleManager.Models
         public decimal Weight { get; set; }
         public decimal Expense { get; set; }
         public string Hauler { get; set; }
+        public int User_Id { get; set; }
     }
 }

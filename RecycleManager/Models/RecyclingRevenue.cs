@@ -10,6 +10,7 @@ namespace RecycleManager.Models
         public decimal WeightInLbs { get; set; }
         public decimal RevenueInDollars { get; set; }
         public string Buyer {  get; set; }
+        public int User_Id { get; set; }
 
     }
 }

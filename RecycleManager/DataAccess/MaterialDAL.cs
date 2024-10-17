@@ -64,6 +64,7 @@ namespace RecycleManager.DataAccess
                     new Tuple<string, object, SqlDbType>("@collection_date",materialCollection.CollectionDate,SqlDbType.Date),
                     new Tuple<string, object, SqlDbType>("@material_name",materialCollection.Material_Name,SqlDbType.NVarChar),
                     new Tuple<string, object, SqlDbType>("@weight_in_lbs",materialCollection.WeightInLbs,SqlDbType.Decimal),
+                    new Tuple<string, object, SqlDbType>("@user_id",materialCollection.User_Id,SqlDbType.Int),
                 };
                 isSuccess = dataAccess.ExecuteNonQuery("Recycling_Collection_Add", parameters);
             }
@@ -88,6 +89,7 @@ namespace RecycleManager.DataAccess
                     new Tuple<string, object, SqlDbType>("@weight_in_lbs",recyclingRevenue.WeightInLbs,SqlDbType.Decimal),
                     new Tuple<string, object, SqlDbType>("@revenue",recyclingRevenue.RevenueInDollars,SqlDbType.Decimal),
                     new Tuple<string, object, SqlDbType>("@buyer",recyclingRevenue.Buyer,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@user_id",recyclingRevenue.User_Id,SqlDbType.Int),
                 };
                 isSuccess = dataAccess.ExecuteNonQuery("Recycling_Revenue_Add", parameters);
             }
@@ -111,6 +113,7 @@ namespace RecycleManager.DataAccess
                     new Tuple<string, object, SqlDbType>("@weight_in_lbs",landFillExpense.Weight,SqlDbType.Decimal),
                     new Tuple<string, object, SqlDbType>("@expense",landFillExpense.Expense,SqlDbType.Decimal),
                     new Tuple<string, object, SqlDbType>("@hauler",landFillExpense.Hauler,SqlDbType.NVarChar),
+                    new Tuple<string, object, SqlDbType>("@user_id",landFillExpense.User_Id,SqlDbType.Int),
                 };
                 isSuccess = dataAccess.ExecuteNonQuery("Land_Fill_Expense_Add", parameters);
             }
