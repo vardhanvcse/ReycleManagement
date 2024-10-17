@@ -111,6 +111,7 @@
     <Content Include="images\recycling-icon.png" />
     <Content Include="images\twitter-icon.png" />
     <Content Include="Login.aspx" />
+    <Content Include="AddMaterial.aspx" />
     <Content Include="MaterialManagement.aspx" />
     <Content Include="RecycleManagementDesk.aspx" />
     <Content Include="ReportsViewer.aspx" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMaterial.aspx.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMaterial.aspx.designer.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="MaterialManagement.aspx.cs">
       <DependentUpon>MaterialManagement.aspx</DependentUpon>
