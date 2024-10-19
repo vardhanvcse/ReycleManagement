@@ -22,7 +22,7 @@
             <div class="useradd-details">
                 <form id="form1" runat="server" >
                     <div class="dropdown">
-                        <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log Out"  />
+                        <asp:Button ID="btnLogin" Width="80px" runat="server" CssClass="login-button" Text="Log Out"  />
                         <div class="dropdown-content">       
                             <a href="SignOut.aspx">Sign Out</a>
                         </div>
@@ -36,7 +36,7 @@
                     <span class="name">Waste Material Description</span>
                     <asp:TextBox ID="txtWasteMaterialDescription" runat="server" placeholder="Waste Material Description"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate ="txtWasteMaterialDescription" runat="server" ErrorMessage="*" ForeColor="Red" Text="Missing Waste Material Description" /><br />
-                    <asp:Button ID="btnAddWasteMaterial" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddWasteMaterial_Click" Text="Add Waste Material" Width="111px" />
+                    <asp:Button ID="btnAddWasteMaterial" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddWasteMaterial_Click" Text="Add Waste Material" Width="126px" />
                       <br />
                     </form>
                       </div>      

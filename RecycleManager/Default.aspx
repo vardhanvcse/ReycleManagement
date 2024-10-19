@@ -14,7 +14,7 @@
        </header>       
     <form id="form1" runat="server">
         <div class="dropdown">
-            <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log In" OnClick="btnLogin_Click" />
+            <asp:Button ID="btnLogin" Width="80px" runat="server" CssClass="login-button" Text="Log In" OnClick="btnLogin_Click" />
             <div class="dropdown-content">
                 <a href="Login.aspx">Login</a>
                 <a href="SignOut.aspx">Sign Out</a>

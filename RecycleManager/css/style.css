@@ -211,3 +211,15 @@ p {
     border: 1px solid #ccc;
     padding: 10px;
 }
+.top-right {
+    position: absolute;
+    top: 10px;margin:30px;
+    right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: lightcyan;
+}
+
+.top-right:hover {
+    color: blueviolet; /* Change color on hover */
+}

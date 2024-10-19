@@ -20,7 +20,7 @@
             <div class="useradd-details">
                 <form id="form1" runat="server" >
                     <div class="dropdown">
-                        <asp:Button ID="btnLogin" runat="server" CssClass="login-button" Text="Log Out"  />
+                        <asp:Button ID="btnLogin" Width="80px" runat="server" CssClass="login-button" Text="Log Out"  />
                         <div class="dropdown-content">       
                             <a href="SignOut.aspx">Sign Out</a>
                         </div>

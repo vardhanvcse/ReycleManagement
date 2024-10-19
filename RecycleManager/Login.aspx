@@ -17,7 +17,7 @@
         <h2>Login</h2>
         <asp:TextBox ID="txtUsername" runat="server" Placeholder="Username" CssClass="form-control" />
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Placeholder="Password" CssClass="form-control" />
-        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" Width="80px" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
         <!-- Error Label -->
         <asp:Label ID="lblError" runat="server" CssClass="error-label" Visible="false" />
         <br />
