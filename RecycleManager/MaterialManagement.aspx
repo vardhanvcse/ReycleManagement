@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MaterialManagement.aspx.cs" Inherits="RecycleManager.MaterialManagement" %>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Recycle Admin</title>
      <link rel="stylesheet" type="text/css" href="css/style.css"/>  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />   
 </head>
 <body>
     <header class="header">
@@ -13,11 +13,19 @@
     </div>  
  </header>   
     <form id="form2" runat="server" class="welcome-container" style="padding: 50px; background-color: #f0f8ff; border-radius: 10px;">
-    <div class="dropdown">
-          <asp:Button ID="btnLogin" Width="80px" runat="server" CssClass="login-button" Text="Log Out"  />
-          <div class="dropdown-content">       
-              <a href="SignOut.aspx">Sign Out</a>
-          </div>
+   <div>  
+          <table><tr><td>
+               <a href="RecycleManagementDesk.aspx" style="margin:50px;zoom:1" class="top-right">
+                    <i class="fas fa-home"></i> 
+                </a>
+                </td><td /><td>                        
+         <div class="dropdown"> 
+            <asp:Button ID="btnLogin" Width="80px"  runat="server" CssClass="login-button" Text="Log Out"  />
+            <div class="dropdown-content">       
+                <a href="SignOut.aspx">Sign Out</a>
+            </div>                       
+        </div>
+        </td></tr></table>
     </div>
 
        <div class="main">

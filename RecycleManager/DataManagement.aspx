@@ -10,7 +10,6 @@
     <header class="header">
         <div class="wrapper">
             <h1>Recycle Management System</h1>
-            <%--<asp:Button ID="btnSignOut" runat="server" CssClass="signout-button" Text="Sign Out" OnClick="btnSignOut_Click" />--%>   
         </div>   
     </header>
           
@@ -18,13 +17,13 @@
     <div class="wrapper">           
     <div class="useradd-details">
         
-    <form id="form1" runat="server">
+    <form id="form1" runat="server">      
          <div>  
               <table><tr><td>
-                   <a href="RecycleManagementDesk.aspx" style="margin:10px;zoom:1" class="top-right">
+                   <a href="RecycleManagementDesk.aspx" style="margin:50px;zoom:1" class="top-right">
                         <i class="fas fa-home"></i> 
                     </a>
-                    </td><td /><td>
+                    </td><td /><td>                        
              <div class="dropdown"> 
                 <asp:Button ID="btnLogin" Width="80px"  runat="server" CssClass="login-button" Text="Log Out"  />
                 <div class="dropdown-content">       

@@ -4,6 +4,7 @@
 <head runat="server">
     <title>Recycle Manager</title>
      <link rel="stylesheet" type="text/css" href="css/style.css"/>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />   
 </head>
 <body>
       <header class="header">
@@ -19,12 +20,20 @@
             <!--Contact Detail Entry-->
             <div class="useradd-details">
                 <form id="form1" runat="server" >
-                    <div class="dropdown">
-                        <asp:Button ID="btnLogin" Width="80px" runat="server" CssClass="login-button" Text="Log Out"  />
+                   <div>  
+                      <table><tr><td>
+                           <a href="RecycleManagementDesk.aspx" style="margin:50px;zoom:1" class="top-right">
+                                <i class="fas fa-home"></i> 
+                            </a>
+                            </td><td /><td>                        
+                     <div class="dropdown"> 
+                        <asp:Button ID="btnLogin" Width="80px"  runat="server" CssClass="login-button" Text="Log Out"  />
                         <div class="dropdown-content">       
                             <a href="SignOut.aspx">Sign Out</a>
-                        </div>
+                        </div>                       
                     </div>
+                    </td></tr></table>
+                 </div>
                 <h3>Add User</h3>          
                     <br />
                     <asp:Label ID="lblResult" runat="server" Text=""></asp:Label><br/>
