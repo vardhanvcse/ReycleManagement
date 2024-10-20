@@ -7,7 +7,7 @@ namespace RecycleManager.BusinessAccess
 {
     public class RolesBAL
     {
-        RolesDAL dal = new RolesDAL();
+        public RolesDAL dal = new RolesDAL();
        
         public List<Roles> GetRoles()
         {

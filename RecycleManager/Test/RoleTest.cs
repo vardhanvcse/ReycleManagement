@@ -1,11 +1,9 @@
 ﻿using NUnit.Framework;
-using Rhino.Mocks;
 using RecycleManager.BusinessAccess;
 using RecycleManager.DataAccess;
-using RecycleManager.Models;
-using System.Collections.Generic;
-using System.Data;
+using Rhino.Mocks;
 using System;
+using System.Data;
 
 
 namespace RecycleManager.Test
@@ -13,73 +11,60 @@ namespace RecycleManager.Test
     [TestFixture]
     public class RoleTest
     {
-        private IRolesDAL _mockDal;
         private RolesBAL _rolesBAL;
+        private RolesDAL _mockDal;
 
         [SetUp]
         public void SetUp()
         {
-            // Create a mock for RolesDAL
-            _mockDal = MockRepository.GenerateMock<IRolesDAL>();
-            // Instantiate the RolesBAL class with the mocked DAL
-            _rolesBAL = new RolesBAL(_mockDal);
+            _mockDal = MockRepository.GenerateMock<RolesDAL>();
+            _rolesBAL = new RolesBAL();
+            _rolesBAL.dal = _mockDal;
         }
 
         [Test]
         public void GetRoles_ReturnsListOfRoles_WhenDataIsValid()
         {
-            // Arrange
-            var dataSet = new DataSet();
+             var dataSet = new DataSet();
             var dataTable = new DataTable();
             dataTable.Columns.Add("role_id", typeof(int));
             dataTable.Columns.Add("role_name", typeof(string));
             dataTable.Columns.Add("role_description", typeof(string));
 
-            // Add a test row
             dataTable.Rows.Add(1, "Admin", "Administrator Role");
             dataSet.Tables.Add(dataTable);
 
-            // Set up the mock to return a tuple with a dataset and true
             _mockDal.Stub(x => x.GetRoles()).Return(new Tuple<DataSet, bool>(dataSet, true));
 
-            // Act
             var result = _rolesBAL.GetRoles();
 
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(1, result.Count);
-            Assert.AreEqual("Admin", result[0].Role_Name);
-            Assert.AreEqual("Administrator Role", result[0].Role_Description);
+            Assert.That(result!= null, "GetRoles failed to get information");
+            Assert.That(result.Count ==1, "GetRoles Failed to get the data from search");
+            Assert.That("Admin" == result[0].Role_Name, "GetRoles giving incorrect Role_Name search in query");
+            Assert.That("Administrator Role" == result[0].Role_Description, "GetRoles giving incorrect Role_Description search in query");
         }
 
         [Test]
         public void GetRoles_ReturnsEmptyList_WhenDataIsNull()
         {
-            // Arrange
-            // Set up the mock to return null
             _mockDal.Stub(x => x.GetRoles()).Return(null);
 
-            // Act
             var result = _rolesBAL.GetRoles();
 
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.Count);
+            Assert.That(result != null, "GetRoles should return empty not null response object");
+            Assert.That(0 == result.Count, "GetRoles should return list with no elements when data access is not returning any dataset");
         }
 
         [Test]
         public void GetRoles_ReturnsEmptyList_WhenDataIsInvalid()
         {
-            // Arrange
-            var dataSet = new DataSet(); // Empty dataset
+            var dataSet = new DataSet(); 
             _mockDal.Stub(x => x.GetRoles()).Return(new Tuple<DataSet, bool>(dataSet, false));
 
-            // Act
             var result = _rolesBAL.GetRoles();
 
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(0, result.Count);
+            Assert.That(result != null, "GetRoles should return empty response list");
+            Assert.That(result.Count == 0, "GetRolessghould return empty result when no data is returned from database");
         }
 
     }

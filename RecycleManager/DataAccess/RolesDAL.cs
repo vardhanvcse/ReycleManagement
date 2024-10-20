@@ -9,7 +9,7 @@ namespace RecycleManager.DataAccess
     public class RolesDAL
     {
         private DAL dataAccess = new DAL();
-        public Tuple<DataSet, bool> GetRoles()
+        public virtual Tuple<DataSet, bool> GetRoles()
         {
             Tuple<DataSet, bool> resultStatus = null;
 
