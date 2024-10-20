@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit;
-using NUnit.Framework;
-using NUnit.Framework.Internal.Execution;
+﻿using NUnit.Framework;
 using RecycleManager.BusinessAccess;
 using RecycleManager.DataAccess;
 using RecycleManager.helpers;
-using RecycleManager.Models;
 using Rhino.Mocks;
+using System;
+using System.Data;
 namespace RecycleManager.Test
 {
     [TestFixture]
@@ -21,82 +13,57 @@ namespace RecycleManager.Test
         private LoginBAL _loginBAL;
         private LoginDAL _mockDal;
 
-        [TestCase]
-        public void LoginTestCheck() {
-            LoginBAL user = new LoginBAL();
-            var userobj = new UserLogin() { Id = 123, UserName = "dummy", Password = "dummy" };
-            var logindal =
-             MockRepository.GenerateStub<LoginDAL>();
-            logindal.Expect(x => x.GetUserIdbyName(userobj)).Return(new Tuple<System.Data.DataSet, bool>(new System.Data.DataSet(), true));
-            user.dal = logindal;
-           //var result = user.VerifyUserLogin(userobj);
-        }
-
         [SetUp]
         public void Setup()
         {
-            // Create a mock for the DAL
             _mockDal = MockRepository.GenerateMock<LoginDAL>();
 
-            // Inject the mocked DAL into the LoginBAL instance
             _loginBAL = new LoginBAL();
-            _loginBAL.dal = _mockDal;  // Override with the mock
+            _loginBAL.dal = _mockDal; 
         }
 
         [Test]
         public void VerifyUserLogin_WhenUserExistsAndLoginSuccess_ReturnsTrue()
         {
-            // Arrange
             var user = new UserLogin { UserName = "validUser" };
-            var userIdDataSet = CreateDataSetWithUserId(1); // Simulate user ID 1
-            var loginResultDataSet = CreateDataSetWithLoginResult(1); // Simulate login success
+            var userIdDataSet = CreateDataSetWithUserId(1); 
+            var loginResultDataSet = CreateDataSetWithLoginResult(1); 
 
-            // Stub the GetUserIdbyName method to return the simulated userId dataset
             _mockDal.Stub(dal => dal.GetUserIdbyName(user)).Return(Tuple.Create(userIdDataSet, true));
 
-            // Stub the VerifyUserLogin method to return the login result dataset
             _mockDal.Stub(dal => dal.VerifyUserLogin(user)).Return(Tuple.Create(loginResultDataSet, true));
 
-            // Act
             bool result = _loginBAL.VerifyUserLogin(user, out _);
 
-            // Assert
-            //Assert.AreEqual(true,result);
-            // Assert.AreEqual(1, user.Id); // Ensure the user ID was set correctly
+            Assert.That(result,"Failed login for valid user");
+            Assert.That(1 == user.Id, "Failed user data validation during login"); 
         }
 
         [Test]
         public void VerifyUserLogin_WhenUserIdIsNegative_ThrowsException()
         {
-            // Arrange
             var user = new UserLogin { UserName = "invalidUser" };
-            var userIdDataSet = CreateDataSetWithUserId(-1); // Simulate invalid user ID
+            var userIdDataSet = CreateDataSetWithUserId(-1); 
 
-            // Stub GetUserIdbyName to return the dataset with a negative user ID
             _mockDal.Stub(dal => dal.GetUserIdbyName(user)).Return(Tuple.Create(userIdDataSet, true));
 
-            // Act & Assert
             var ex = Assert.Throws<Exception>(() => _loginBAL.VerifyUserLogin(user, out _));
-            Assert.Equals("Non Existant user", ex.Message);
+            Assert.That("Non Existant user" == ex.Message , "Failed Non Existant user Login use case scenario");
         }
 
         [Test]
         public void VerifyUserLogin_WhenLoginFails_ReturnsFalse()
         {
-            // Arrange
             var user = new UserLogin { UserName = "validUser" };
-            var userIdDataSet = CreateDataSetWithUserId(1); // Simulate user ID 1
-            var loginResultDataSet = CreateDataSetWithLoginResult(0); // Simulate login failure
+            var userIdDataSet = CreateDataSetWithUserId(1);
+            var loginResultDataSet = CreateDataSetWithLoginResult(0); 
 
-            // Stub GetUserIdbyName and VerifyUserLogin methods
             _mockDal.Stub(dal => dal.GetUserIdbyName(user)).Return(Tuple.Create(userIdDataSet, true));
             _mockDal.Stub(dal => dal.VerifyUserLogin(user)).Return(Tuple.Create(loginResultDataSet, true));
 
-            // Act
             bool result = _loginBAL.VerifyUserLogin(user, out _);
 
-            // Assert
-            Assert.Equals(false, result);
+            Assert.That(!result,"Invalid user login scenario failed during the login");
         }
 
 
@@ -118,7 +85,7 @@ namespace RecycleManager.Test
             var dataTable = new DataTable();
             dataTable.Columns.Add("LoginResult");
             var row = dataTable.NewRow();
-            row[0] = loginResult; // 1 for success, 0 for failure
+            row[0] = loginResult; 
             dataTable.Rows.Add(row);
             dataSet.Tables.Add(dataTable);
             return dataSet;

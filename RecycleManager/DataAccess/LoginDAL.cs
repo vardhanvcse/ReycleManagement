@@ -24,7 +24,7 @@ namespace RecycleManager.DataAccess
             return new Tuple<DataSet, bool>(null,false);
         }
 
-        public Tuple<DataSet, bool> VerifyUserLogin(UserLogin userLogin)
+        public virtual Tuple<DataSet, bool> VerifyUserLogin(UserLogin userLogin)
         {            
             try
             {
