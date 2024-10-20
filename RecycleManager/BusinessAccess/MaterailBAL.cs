@@ -8,7 +8,7 @@ namespace RecycleManager.BusinessAccess
     public class MaterailBAL
     {
 
-        MaterialDAL dal = new MaterialDAL();        
+        public MaterialDAL dal = new MaterialDAL();        
         public bool AddMaterial(Material material)
         {
             return dal.AddMaterial(material);

@@ -9,7 +9,7 @@ namespace RecycleManager.DataAccess
     {
         private DAL dataAccess = new DAL();
         #region Add Material
-        public bool AddMaterial(Material material)
+        public virtual bool AddMaterial(Material material)
         {
             bool isSuccess = false;
 
@@ -30,7 +30,7 @@ namespace RecycleManager.DataAccess
             return isSuccess;
         }
 
-        public Tuple<DataSet, bool> GetMaterials(int materialId)
+        public virtual Tuple<DataSet, bool> GetMaterials(int materialId)
         {
             Tuple<DataSet, bool> resultStatus = null;
 
@@ -54,7 +54,7 @@ namespace RecycleManager.DataAccess
 
         #region Recycling_Collection
 
-        public bool AddRecyclingCollection(MaterialCollection materialCollection)
+        public virtual bool AddRecyclingCollection(MaterialCollection materialCollection)
         {
             bool isSuccess = false;
             try
@@ -77,7 +77,7 @@ namespace RecycleManager.DataAccess
 
 
         #region Recycling Revenue Thru the Material Sale
-        public bool AddRecyclingRevenue(RecyclingRevenue recyclingRevenue)
+        public virtual bool AddRecyclingRevenue(RecyclingRevenue recyclingRevenue)
         {
             bool isSuccess = false;
             try
@@ -102,7 +102,7 @@ namespace RecycleManager.DataAccess
 
         #region Lanfill Expense
 
-        public bool AddLandFillExpense(LandFillExpense landFillExpense)
+        public virtual bool AddLandFillExpense(LandFillExpense landFillExpense)
         {
             bool isSuccess = false;
             try

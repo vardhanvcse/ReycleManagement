@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
-using Rhino.Mocks;
-using System.Collections.Generic;
-using System.Data;
 using RecycleManager.BusinessAccess;
 using RecycleManager.DataAccess;
 using RecycleManager.Models;
+using Rhino.Mocks;
+using System.Data;
+using System.Linq;
 
 namespace RecycleManager.Test
 {
@@ -12,51 +12,43 @@ namespace RecycleManager.Test
     public class MaterialTest
     {
         private MaterialDAL _mockMaterialDAL;
-        private MaterialBAL _materialBAL;
+        private MaterailBAL _materialBAL;
 
         [SetUp]
         public void Setup()
         {
             _mockMaterialDAL = MockRepository.GenerateMock<MaterialDAL>();
-            _materialBAL = new MaterialBAL();
-            // Injecting the mock object
+            _materialBAL = new MaterailBAL();
             _materialBAL.dal = _mockMaterialDAL;
         }
 
         [Test]
         public void AddMaterial_ShouldReturnTrue_WhenMaterialIsAddedSuccessfully()
         {
-            // Arrange
             var material = new Material { Material_Id = 1, Material_Name = "Glass", Material_Description = "Recyclable glass" };
             _mockMaterialDAL.Expect(dal => dal.AddMaterial(material)).Return(true);
 
-            // Act
             var result = _materialBAL.AddMaterial(material);
 
-            // Assert
-            Assert.IsTrue(result);
+            Assert.That(result ,"Failed processing Add Material");
             _mockMaterialDAL.VerifyAllExpectations();
         }
 
         [Test]
         public void AddMaterial_ShouldReturnFalse_WhenMaterialIsNotAdded()
         {
-            // Arrange
             var material = new Material { Material_Id = 1, Material_Name = "Plastic", Material_Description = "Recyclable plastic" };
             _mockMaterialDAL.Expect(dal => dal.AddMaterial(material)).Return(false);
 
-            // Act
             var result = _materialBAL.AddMaterial(material);
 
-            // Assert
-            Assert.IsFalse(result);
+            Assert.That(!result, "Expected false for AddMaterial");
             _mockMaterialDAL.VerifyAllExpectations();
         }
 
         [Test]
         public void GetMaterials_ShouldReturnListOfMaterials_WhenDataExists()
         {
-            // Arrange
             int materialId = 1;
             var dataTable = new DataTable();
             dataTable.Columns.Add("material_id", typeof(int));
@@ -68,72 +60,57 @@ namespace RecycleManager.Test
             var dataSet = new DataSet();
             dataSet.Tables.Add(dataTable);
 
-            _mockMaterialDAL.Expect(dal => dal.GetMaterials(materialId)).Return((dataSet, true));
+            _mockMaterialDAL.Expect(dal => dal.GetMaterials(materialId)).Return(new System.Tuple<DataSet, bool>(dataSet, true));
 
-            // Act
             var result = _materialBAL.GetMaterials(materialId);
-
-            // Assert
-            Assert.AreEqual(2, result.Count);
-            Assert.AreEqual("Glass", result[0].Material_Name);
-            Assert.AreEqual("Plastic", result[1].Material_Name);
+            Assert.That(2 == result.Count, "Failed to get the exact number of materials");
+            Assert.That("Glass" == result[0].Material_Name ,"Material data is incorrect in the result");
+            Assert.That("Plastic" == result[1].Material_Name, "Material data is incorrect in the result");
             _mockMaterialDAL.VerifyAllExpectations();
         }
         public void AddLandFillExpense_ShouldReturnTrue_WhenExpenseIsAddedSuccessfully()
         {
-            // Arrange
-            var landFillExpense = new LandFillExpense { /* initialize properties */ };
+            var landFillExpense = new LandFillExpense { };
             _mockMaterialDAL.Expect(dal => dal.AddLandFillExpense(landFillExpense)).Return(true);
 
-            // Act
             var result = _materialBAL.AddLandFillExpense(landFillExpense);
 
-            // Assert
-            Assert.IsTrue(result);
+            Assert.That(result, "Failed processing AddLandFillExpense");
             _mockMaterialDAL.VerifyAllExpectations();
         }
         [Test]
         public void GetMaterials_ShouldReturnEmptyList_WhenDataDoesNotExist()
         {
-            // Arrange
             int materialId = 1;
-            _mockMaterialDAL.Expect(dal => dal.GetMaterials(materialId)).Return((null, false));
+            _mockMaterialDAL.Expect(dal => dal.GetMaterials(materialId)).Return(new System.Tuple<DataSet, bool>(null, false));
 
-            // Act
             var result = _materialBAL.GetMaterials(materialId);
 
-            // Assert
-            Assert.IsEmpty(result);
+            Assert.That(!result.Any(),"There should not be any materials in the result");
             _mockMaterialDAL.VerifyAllExpectations();
         }
 
         [Test]
         public void AddMaterialCollection_ShouldReturnTrue_WhenCollectionIsAddedSuccessfully()
         {
-            // Arrange
-            var materialCollection = new MaterialCollection { /* initialize properties */ };
+            var materialCollection = new MaterialCollection { };
             _mockMaterialDAL.Expect(dal => dal.AddRecyclingCollection(materialCollection)).Return(true);
 
-            // Act
             var result = _materialBAL.AddMaterialCollection(materialCollection);
 
-            // Assert
-            Assert.IsTrue(result);
+            Assert.That(result,"Adding material failed");
             _mockMaterialDAL.VerifyAllExpectations();
         }
 
         [Test]
         public void AddRecyclingRevenue_ShouldReturnTrue_WhenRevenueIsAddedSuccessfully()
         {
-            // Arrange
-            var recyclingRevenue = new RecyclingRevenue { /* initialize properties */ };
+            var recyclingRevenue = new RecyclingRevenue { };
             _mockMaterialDAL.Expect(dal => dal.AddRecyclingRevenue(recyclingRevenue)).Return(true);
 
-            // Act
             var result = _materialBAL.AddRecyclingRevenue(recyclingRevenue);
 
-            // Assert
-            Assert.IsTrue(result);
+            Assert.That(result,"Failed adding ercycle revenue");
             _mockMaterialDAL.VerifyAllExpectations();
         }
     }
