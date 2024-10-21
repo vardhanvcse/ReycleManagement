@@ -45,5 +45,29 @@ namespace RecycleManager.Test
             Assert.True(!result,"Failed scenario for Add user");
             _mockUsersDAL.AssertWasCalled(dal => dal.AddUser(user));
         }
+
+        [Test]
+        public void GetUsers_ShouldReturnListOfUsers_WhenDataIsAvailable()
+        {
+            int userId = 1;
+            var dataSet = new DataSet();
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("user_id", typeof(int));
+            dataTable.Columns.Add("user_name", typeof(string));
+            dataTable.Columns.Add("user_mail_id", typeof(string));
+            dataTable.Columns.Add("phone_num", typeof(string));
+            dataTable.Columns.Add("role_name", typeof(string));
+            dataTable.Rows.Add(1, "John Doe", "john.doe@example.com", "123-456-7890", "Admin");
+            dataSet.Tables.Add(dataTable);
+            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return((dataSet, true));
+
+            var users = _userBAL.GetUsers(userId);
+
+            Assert.That(users == null , "Failed scenario for get users");
+            Assert.That(1 == users.Count ,"Failed scenario to get users in Getusers");
+            Assert.That("John Doe" == users[0].User_Name, "Failed data validation of response in Get Users for username");
+            Assert.That("Admin" == users[0].Role_Name, "Failed data validation of response in Get Users for rolename");
+            _mockUsersDAL.AssertWasCalled(dal => dal.GetUsers(userId));
+        }
     }
 }
