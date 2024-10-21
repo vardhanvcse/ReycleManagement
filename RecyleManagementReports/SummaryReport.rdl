@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.7.34031.279</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-10-20T04:19:14.9958752Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-10-21T23:50:38.6919138Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -190,7 +190,7 @@
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
-or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_name.Value = "Waste Diversion Rate %"
+or Fields!material_name.Value = "Total Waste Diverted lbs." or Fields!material_name.Value = "Waste Diversion Rate %" or Fields!material_name.Value = ""
 ,"LightGray","LightGreen")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -198,7 +198,6 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_na
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -230,7 +229,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_na
                               <Style>Solid</Style>
                             </Border>
                             <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
-or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_name.Value = "Waste Diversion Rate %"
+or Fields!material_name.Value = "Total Waste Diverted lbs." or Fields!material_name.Value = "Waste Diversion Rate %" or Fields!material_name.Value = ""
 ,"LightGray","LightGreen")</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -238,7 +237,6 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_na
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -376,7 +374,7 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_na
                             <Style>Solid</Style>
                           </Border>
                           <BackgroundColor>=IIf(Fields!material_name.Value = "FoodWaste" or Fields!material_name.Value = "Total Waste Generated lbs."
-or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_name.Value = "Waste Diversion Rate %"
+or Fields!material_name.Value = "Total Waste Diverted lbs." or Fields!material_name.Value = "Waste Diversion Rate %" or Fields!material_name.Value = ""
 ,"LightGray","LightGreen")</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -384,7 +382,6 @@ or Fields!material_name.Value = "Total Waste Diverted lbs."or Fields!material_na
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                 </TablixMember>
