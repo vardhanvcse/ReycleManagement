@@ -7,7 +7,7 @@ namespace RecycleManager.BusinessAccess
 {
     public class UserBAL
     {
-        UsersDAL dal = new UsersDAL();
+        public UsersDAL dal = new UsersDAL();
         public bool AddUser(User user)
         {
             return dal.AddUser(user);
