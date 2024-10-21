@@ -99,7 +99,7 @@
                                             <br /><br />
 
                                             <span class="name">Weight of Material Waste(lbs)</span>
-                                            <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px" Step="0.1" CausesValidation="false" placeholder="Food Waste Weight in lbs"  runat="server" />
+                                            <asp:TextBox ID="txtFoodWasteWeight" TextMode="Number" Width="350px" Step="0.1" CausesValidation="false" placeholder="Weight of Waste in lbs"  runat="server" />
                                             <br /><br />
                                              <br /><br />
                                             <asp:Button ID="btnAddMaterialWasteCollectionDetails" runat="server" BackColor="#000066" BorderColor="#000066" ForeColor="White" Height="34px" OnClick="btnAddMaterialWasteCollectionDetails_Click" Text="Add Material Collection" Width="175px" />
