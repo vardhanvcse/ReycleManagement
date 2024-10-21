@@ -69,5 +69,18 @@ namespace RecycleManager.Test
             Assert.That("Admin" == users[0].Role_Name, "Failed data validation of response in Get Users for rolename");
             _mockUsersDAL.AssertWasCalled(dal => dal.GetUsers(userId));
         }
+
+        [Test]
+        public void GetUsers_ShouldReturnEmptyList_WhenDataIsNotAvailable()
+        {
+            int userId = 1;
+            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return((null, false));
+
+            var users = _userBAL.GetUsers(userId);
+
+            Assert.IsNotNull(users);
+            Assert.That(0 == users.Count, "Failed Get users for scenario where data is not available");
+            _mockUsersDAL.AssertWasCalled(dal => dal.GetUsers(userId));
+        }
     }
 }
