@@ -33,5 +33,17 @@ namespace RecycleManager.Test
             Assert.That(result, "Failed adding user");
             _mockUsersDAL.AssertWasCalled(dal => dal.AddUser(user));
         }
+
+        [Test]
+        public void AddUser_ShouldReturnFalse_WhenUserIsNotAdded()
+        {
+            var user = new User { User_Id = 1, User_Name = "John Doe", User_Mail_Id = "john.doe@example.com" };
+            _mockUsersDAL.Stub(dal => dal.AddUser(user)).Return(false);
+
+            var result = _userBAL.AddUser(user);
+
+            Assert.True(!result,"Failed scenario for Add user");
+            _mockUsersDAL.AssertWasCalled(dal => dal.AddUser(user));
+        }
     }
 }
