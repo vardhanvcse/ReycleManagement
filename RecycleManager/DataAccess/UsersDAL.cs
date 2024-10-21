@@ -12,7 +12,7 @@ namespace RecycleManager.DataAccess
         private DAL dataAccess = new DAL();
 
         #region ADD User
-        public bool AddUser(User user)
+        public virtual bool AddUser(User user)
         {
              bool isSuccess = false;
 
@@ -38,7 +38,7 @@ namespace RecycleManager.DataAccess
         }
         #endregion
         #region Get Total Users
-        public Tuple<DataSet, bool> GetUsers(int user_id)
+        public virtual Tuple<DataSet, bool> GetUsers(int user_id)
         {
             Tuple<DataSet, bool> resultStatus = null;
 

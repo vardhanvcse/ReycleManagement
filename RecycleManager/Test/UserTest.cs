@@ -3,7 +3,6 @@ using RecycleManager.BusinessAccess;
 using RecycleManager.DataAccess;
 using RecycleManager.Models;
 using Rhino.Mocks;
-using System;
 using System.Data;
 
 namespace RecycleManager.Test
@@ -17,7 +16,7 @@ namespace RecycleManager.Test
         [SetUp]
         public void Setup()
         {
-            UsersDAL _mockUsersDAL = MockRepository.GenerateMock<UsersDAL>();
+             _mockUsersDAL = MockRepository.GenerateMock<UsersDAL>();
             _userBAL = new UserBAL();
             _userBAL.dal = _mockUsersDAL;
         }
@@ -42,7 +41,7 @@ namespace RecycleManager.Test
 
             var result = _userBAL.AddUser(user);
 
-            Assert.True(!result,"Failed scenario for Add user");
+            Assert.That(!result,"Failed scenario for Add user");
             _mockUsersDAL.AssertWasCalled(dal => dal.AddUser(user));
         }
 
@@ -59,11 +58,11 @@ namespace RecycleManager.Test
             dataTable.Columns.Add("role_name", typeof(string));
             dataTable.Rows.Add(1, "John Doe", "john.doe@example.com", "123-456-7890", "Admin");
             dataSet.Tables.Add(dataTable);
-            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return((dataSet, true));
+            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return(new System.Tuple<DataSet, bool>(dataSet, true));
 
             var users = _userBAL.GetUsers(userId);
 
-            Assert.That(users == null , "Failed scenario for get users");
+            Assert.That(users != null , "Failed scenario for get users");
             Assert.That(1 == users.Count ,"Failed scenario to get users in Getusers");
             Assert.That("John Doe" == users[0].User_Name, "Failed data validation of response in Get Users for username");
             Assert.That("Admin" == users[0].Role_Name, "Failed data validation of response in Get Users for rolename");
@@ -74,11 +73,11 @@ namespace RecycleManager.Test
         public void GetUsers_ShouldReturnEmptyList_WhenDataIsNotAvailable()
         {
             int userId = 1;
-            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return((null, false));
+            _mockUsersDAL.Stub(dal => dal.GetUsers(userId)).Return(new System.Tuple<DataSet, bool>(null, false));
 
             var users = _userBAL.GetUsers(userId);
 
-            Assert.IsNotNull(users);
+            Assert.That(users != null , "Failed Get users for senario where empty list is expected rather than null");
             Assert.That(0 == users.Count, "Failed Get users for scenario where data is not available");
             _mockUsersDAL.AssertWasCalled(dal => dal.GetUsers(userId));
         }
