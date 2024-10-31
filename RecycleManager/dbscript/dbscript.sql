@@ -818,7 +818,7 @@ BEGIN
 		INSERT INTO @CollectionInformation(collectiondate,totalweight,material_name) (
 		(SELECT 
 			convert(nvarchar,DATENAME(MONTH,sale_date)) +'-'+ convert(nvarchar,YEAR(sale_date)) AS collectiondate,
-			SUM(revenue) AS totalweight  ,'Recycle Revenue($)' as material_name
+			convert(float,SUM(revenue)) AS totalweight  ,'Recycle Revenue($)' as material_name
 	
 		FROM 
 			recycling_revenue recrev inner join material mat on mat.material_id = recrev.material_id 	
