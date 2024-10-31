@@ -1149,8 +1149,8 @@ ALTER DATABASE [RecycleManagement] SET  READ_WRITE
 GO
 
 
-
-
+use [RecycleManagement]
+GO
 
 INSERT INTO [dbo].[user]
            ([user_name]
@@ -1166,14 +1166,6 @@ INSERT INTO [dbo].[user]
            ,'NW MSU'
 		   ,'admin'
 		   ,'password')
-GO
-
-
-INSERT INTO user_login
-           
-     VALUES
-           (1
-           ,'password')
 GO
 
 insert into material values('FoodWaste','food waste');
@@ -1197,11 +1189,6 @@ Go
 insert into roles values('admin','Admin Role')
 insert into roles values('user','User Role')
 Go
-Insert into user_role values(1,1)
-Go
-
-CREATE LOGIN AdminLOGIN WITH PASSWORD = 'PasswordCheck@1'
-GO
 
 insert into vehicle_weights values('low_weight','weight <=8,500 pounds')
 insert into vehicle_weights values('heavy_weight','weight >8,500 pounds')
