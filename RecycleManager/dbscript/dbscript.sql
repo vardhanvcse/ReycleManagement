@@ -649,13 +649,14 @@ BEGIN
 			
 	   union
 
-	   (SELECT 
-			convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)) AS collectiondate,
+	  (SELECT 
+			convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
 			SUM(weight_in_lbs) AS totalweight  ,'Total Waste Diverted lbs.' as material_name	
 		FROM 
-			land_fill_expense  	  
-			GROUP BY convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)))
-			);		
+			recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 	  
+			WHERE mat.material_name NOT IN ('LandFill')
+			GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date))));
+		
 
 		INSERT INTO @CollectionInformation
 		SELECT T1.collectiondate,(t1.totalweight/t2.totalweight)*100,'Waste Diversion Rate %' FROM @CollectionInformation T1 join @CollectionInformation T2 on 
@@ -859,12 +860,12 @@ BEGIN
 	   union
 
 	   (SELECT 
-			convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)) AS collectiondate,
+			convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
 			SUM(weight_in_lbs) AS totalweight  ,'Total Waste Diverted lbs.' as material_name	
 		FROM 
-			land_fill_expense  	  
-			GROUP BY convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)))
-			);		
+			recycling_collection  rec inner join material mat on mat.material_id = rec.material_id 	  
+			WHERE mat.material_name NOT IN ('LandFill')
+			GROUP BY convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date))));
 
 		INSERT INTO @CollectionInformation
 		SELECT T1.collectiondate,(t1.totalweight/t2.totalweight)*100,'Waste Diversion Rate %' FROM @CollectionInformation T1 join @CollectionInformation T2 on 
