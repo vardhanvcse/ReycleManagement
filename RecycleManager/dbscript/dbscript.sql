@@ -686,49 +686,51 @@ GO
 CREATE PROCEDURE [dbo].[ReportingGraph_LandFill_FoodWaste_Recycling_Get]
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-		DECLARE @recycle_collection TABLE(collectiondate NVARCHAR(50),totalweight FLOAT,material_name VARCHAR(100));
-		INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
-		(SELECT 
-			convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
-			SUM(weight_in_lbs) AS totalweight ,'Recyclable Waste' AS material_name
-	
-		FROM 
-			recycling_collection rec inner join material mat on mat.material_id = rec.material_id 
-			WHERE mat.material_name NOT IN ('FoodWaste','LandFill')
-			GROUP BY 
-		  YEAR(collection_date), collection_date);
+DECLARE @recycle_collection TABLE(collectiondate NVARCHAR(50),totalweight FLOAT,material_name VARCHAR(100));
+INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
+(SELECT
+convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
+SUM(weight_in_lbs) AS totalweight ,'Recyclable Waste' AS material_name
 
-		  
-		INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
-		(SELECT 
-			convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
-			SUM(weight_in_lbs) AS totalweight ,'Food Waste Compost' AS material_name
-	
-		FROM 
-			recycling_collection rec inner join material mat on mat.material_id = rec.material_id 
-			WHERE mat.material_name IN ('FoodWaste')
-			GROUP BY 
-		  YEAR(collection_date), collection_date);
+FROM
+recycling_collection rec inner join material mat on mat.material_id = rec.material_id
+WHERE mat.material_name NOT IN ('FoodWaste','LandFill')
+GROUP BY
+ YEAR(collection_date), collection_date);
 
-		INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
-		(SELECT 
-			convert(nvarchar,DATENAME(MONTH,land_fill_date)) +'-'+ convert(nvarchar,YEAR(land_fill_date)) AS collectiondate,
-			SUM(weight_in_lbs) AS totalweight ,'LandFill' AS material_name
-	
-		FROM 
-			land_fill_expense
-			GROUP BY YEAR(land_fill_date), land_fill_date);
-			
-		  SELECT CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATE) AS collectiondate,
-		  sum(totalweight) as totalweight,material_name FROM @recycle_collection
-		  GROUP BY collectiondate,material_name
-		  ORDER BY 
-		  CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATETIME) ASC;
+ 
+INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
+(SELECT
+convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
+SUM(weight_in_lbs) AS totalweight ,'Food Waste Compost' AS material_name
+
+FROM
+recycling_collection rec inner join material mat on mat.material_id = rec.material_id
+WHERE mat.material_name IN ('FoodWaste')
+GROUP BY
+ YEAR(collection_date), collection_date);
+
+INSERT INTO @recycle_collection (collectiondate,totalweight,material_name)
+(SELECT
+convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) AS collectiondate,
+SUM(weight_in_lbs) AS totalweight ,'LandFill' AS material_name
+
+FROM
+recycling_collection rec inner join material mat on mat.material_id = rec.material_id
+WHERE mat.material_name IN ('LandFill')
+GROUP BY
+ YEAR(collection_date), collection_date);
+
+ SELECT CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATE) AS collectiondate,
+ sum(totalweight) as totalweight,material_name FROM @recycle_collection
+ GROUP BY collectiondate,material_name
+ ORDER BY
+ CAST(DATEFROMPARTS(CONVERT(INT,Substring(collectiondate,CHARINDEX('-',collectiondate)+1,4),0), dbo.GetMonthDetails(TRIM(SUBSTRING(collectiondate,1,3))),01) AS DATETIME) ASC;
 END
 GO
 /****** Object:  StoredProcedure [dbo].[ReportinGraph_Recyclabes_Broad_Get]    Script Date: 10/31/2024 3:29:38 PM ******/
