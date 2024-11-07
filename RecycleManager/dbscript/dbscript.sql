@@ -492,23 +492,24 @@ GO
 CREATE PROCEDURE [dbo].[PIEChartReport_Get]
 AS
 BEGIN
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	
-		SELECT 'Food Waste and Compost' as material_name,SUM(weight_in_lbs) as weight_in_lbs FROM recycling_collection rec JOIN material mat 
-		ON mat.material_id = rec.material_id WHERE material_name='FoodWaste'
 
-		UNION
+SELECT 'Food Waste and Compost' as material_name,SUM(weight_in_lbs) as weight_in_lbs FROM recycling_collection rec JOIN material mat
+ON mat.material_id = rec.material_id WHERE material_name='FoodWaste'
 
-		SELECT 'Recycling',SUM(weight_in_lbs) as weight_in_lbs FROM recycling_collection rec JOIN material mat 
-		ON mat.material_id = rec.material_id WHERE material_name !='FoodWaste'
+UNION
 
-		UNION
+SELECT 'Recycling',SUM(weight_in_lbs) as weight_in_lbs FROM recycling_collection rec JOIN material mat
+ON mat.material_id = rec.material_id WHERE material_name !='FoodWaste' and material_name !='LandFill'
 
-		SELECT 'LandFill',SUM(weight_in_lbs) as weight_in_lbs FROM land_fill_expense;
+UNION
+
+SELECT 'LandFill',SUM(weight_in_lbs) as weight_in_lbs FROM recycling_collection rec JOIN material mat 
+ON mat.material_id = rec.material_id WHERE material_name ='LandFill';
 END
 GO
 /****** Object:  StoredProcedure [dbo].[Recycling_Collection_Add]    Script Date: 10/31/2024 3:29:38 PM ******/
