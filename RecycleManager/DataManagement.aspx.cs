@@ -213,7 +213,7 @@ namespace RecycleManager
             }
         }
 
-        protected void btnSignOut_Click(object sender, EventArgs e)
+        protected void btnLogOut_Click(object sender, EventArgs e)
         {
             Response.Redirect("SignOut.aspx");
         }

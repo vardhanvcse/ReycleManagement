@@ -69,5 +69,9 @@ namespace RecycleManager
             txtMailId.Text = "";
             txtPhoneNumber.Text = "";            
         }
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 }

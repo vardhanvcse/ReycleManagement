@@ -7,6 +7,7 @@
     <title>Recycle Manager</title>
      <link rel="stylesheet" type="text/css" href="css/style.css"/>    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />   
+    <link type="text/css" href="css/manage_data_views.css" rel="stylesheet" />   
 </head>
 <body>
       <header class="header">
@@ -29,10 +30,7 @@
                                 </a>
                                 </td><td /><td>                        
                          <div class="dropdown"> 
-                            <asp:Button ID="btnLogin" Width="80px"  runat="server" CssClass="login-button" Text="Log Out"  />
-                            <div class="dropdown-content">       
-                                <a href="SignOut.aspx">Sign Out</a>
-                            </div>                       
+                               <asp:Button ID="btnLogOut"  style="border-radius: 10px;background-color: royalblue;color:white" Width="80px" runat="server" OnClick="btnLogOut_Click"  CssClass="login-button" Text="Log Out"  />
                           </div>
                            </td></tr></table>
                         </div>

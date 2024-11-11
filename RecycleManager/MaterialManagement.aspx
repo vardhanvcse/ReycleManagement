@@ -5,6 +5,7 @@
     <title>Recycle Admin</title>
      <link rel="stylesheet" type="text/css" href="css/style.css"/>  
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />   
+    <link type="text/css" href="css/manage_data_views.css" rel="stylesheet" />   
 </head>
 <body>
     <header class="header">
@@ -20,10 +21,7 @@
                 </a>
                 </td><td /><td>                        
          <div class="dropdown"> 
-            <asp:Button ID="btnLogin" Width="80px"  runat="server" CssClass="login-button" Text="Log Out"  />
-            <div class="dropdown-content">       
-                <a href="SignOut.aspx">Sign Out</a>
-            </div>                       
+            <asp:Button ID="btnLogOut"  style="border-radius: 10px;background-color: royalblue;color:white" Width="80px" runat="server" OnClick="btnLogOut_Click"  CssClass="login-button" Text="Log Out"  />
         </div>
         </td></tr></table>
     </div>
@@ -37,7 +35,7 @@
                <a href="AddMaterial.aspx">
                     <button type="button">Add Material</button>
                 </a>
-               <asp:GridView ID="GVMaterials" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="material_id" DataSourceID="sdsMaterials" ForeColor="#333333" GridLines="None" Width="1158px">
+               <asp:GridView ID="GVMaterials" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="material_id" CssClass="rounded-grid" DataSourceID="sdsMaterials" ForeColor="#333333" GridLines="None" Width="1158px">
                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                    <Columns>
                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

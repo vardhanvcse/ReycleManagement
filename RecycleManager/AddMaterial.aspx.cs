@@ -43,5 +43,10 @@ namespace RecycleManager
             txtWasteMaterialName.Text = "";
             txtWasteMaterialDescription.Text = "";           
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 }

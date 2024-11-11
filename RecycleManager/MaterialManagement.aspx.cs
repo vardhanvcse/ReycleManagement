@@ -12,5 +12,10 @@ namespace RecycleManager
                 Response.Redirect("Login.aspx");
             }
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 }

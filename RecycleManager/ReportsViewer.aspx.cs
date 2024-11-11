@@ -31,6 +31,10 @@ namespace RecycleManager
                 linksRepeater.DataBind();
             }
         }
-       
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 }

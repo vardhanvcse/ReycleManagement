@@ -39,5 +39,10 @@ namespace RecycleManager
             VehicleBAL vehicleBal = new VehicleBAL();
             lblVehicles.Text = vehicleBal.GetVehicles(string.Empty).Count.ToString();
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SignOut.aspx");
+        }
     }
 }
