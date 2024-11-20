@@ -33,7 +33,7 @@
                  
                <h3 style="align-content:center">All Materials</h3>
                <a href="AddMaterial.aspx">
-                    <button type="button">Add Material</button>
+                    <button type="button">+New Waste Material</button>
                 </a>
                <asp:GridView ID="GVMaterials" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="material_id" CssClass="rounded-grid" DataSourceID="sdsMaterials" ForeColor="#333333" GridLines="None" Width="1158px">
                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
