@@ -38,11 +38,26 @@
                <asp:GridView ID="GVMaterials" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="material_id" CssClass="rounded-grid" DataSourceID="sdsMaterials" ForeColor="#333333" GridLines="None" Width="1158px">
                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                    <Columns>
-                       <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                        <asp:BoundField DataField="material_id" HeaderText="material_id" InsertVisible="False" ReadOnly="True" SortExpression="material_id" />
                        <asp:BoundField DataField="material_name" HeaderText="material_name" SortExpression="material_name" />
                        <asp:BoundField DataField="material_description" HeaderText="material_description" SortExpression="material_description" />
-                   </Columns>
+                       <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="EditButton" runat="server" CommandName="Edit" 
+                                    ImageUrl="~/images/edit.png" Width="25px" Height="25px" ToolTip="Edit" />
+                                 &nbsp;&nbsp;
+                                <asp:ImageButton ID="DeleteButton" runat="server" CommandName="Delete" 
+                                    ImageUrl="~/images/delete.png" Width="25px" Height="25px" ToolTip="Delete" />
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:ImageButton ID="UpdateButton" runat="server" CommandName="Update" 
+                                    ImageUrl="~/images/update.png" Width="25px" Height="25px" ToolTip="Update" />
+                                 &nbsp;&nbsp;
+                                <asp:ImageButton ID="CancelButton" runat="server" CommandName="Cancel" 
+                                    ImageUrl="~/images/cancel.png" Width="25px" Height="25px" ToolTip="Cancel" />
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                       </Columns>
                    <EditRowStyle BackColor="#999999" />
                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

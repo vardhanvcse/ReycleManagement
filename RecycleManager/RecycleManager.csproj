@@ -110,10 +110,14 @@
     <Content Include="DataManagement.aspx" />
     <Content Include="dbscript\dbscript.sql" />
     <Content Include="Default.aspx" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\edit.png" />
     <Content Include="images\facebook-icon.png" />
     <Content Include="images\linkedin-icon.png" />
     <Content Include="images\recycling-icon.png" />
     <Content Include="images\twitter-icon.png" />
+    <Content Include="images\update.png" />
     <Content Include="Login.aspx" />
     <Content Include="AddMaterial.aspx" />
     <Content Include="MaterialManagement.aspx" />

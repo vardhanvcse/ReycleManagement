@@ -37,13 +37,28 @@
                    </a>
                <asp:GridView ID="GVUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="user_id" DataSourceID="sdsUsers" ForeColor="#333333" GridLines="None" Width="1158px" CssClass="rounded-grid">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <Columns>                         
                         <asp:BoundField DataField="user_id" HeaderText="user_id" InsertVisible="False" ReadOnly="True" SortExpression="user_id" />
                         <asp:BoundField DataField="user_name" HeaderText="user_name" SortExpression="user_name" />
                         <asp:BoundField DataField="user_mail_id" HeaderText="user_mail_id" SortExpression="user_mail_id" />
                         <asp:BoundField DataField="phone_num" HeaderText="phone_num" SortExpression="phone_num" />
                         <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" />
+                         <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:ImageButton ID="EditButton" runat="server" CommandName="Edit" 
+                                    ImageUrl="~/images/edit.png" Width="25px" Height="25px" ToolTip="Edit" />
+                                 &nbsp;&nbsp;
+                                <asp:ImageButton ID="DeleteButton" runat="server" CommandName="Delete" 
+                                    ImageUrl="~/images/delete.png" Width="25px" Height="25px" ToolTip="Delete" />
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:ImageButton ID="UpdateButton" runat="server" CommandName="Update" 
+                                    ImageUrl="~/images/update.png" Width="25px" Height="25px" ToolTip="Update" />
+                                 &nbsp;&nbsp;
+                                <asp:ImageButton ID="CancelButton" runat="server" CommandName="Cancel" 
+                                    ImageUrl="~/images/cancel.png" Width="25px" Height="25px" ToolTip="Cancel" />
+                            </EditItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
