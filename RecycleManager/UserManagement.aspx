@@ -33,7 +33,7 @@
                     
                   <h3 style="align-content:center">All Users</h3>
                   <a href="AddUser.aspx">
-                       <button type="button">+New User</button>
+                       <button type="button"><b>+New User</b></button>
                    </a>
                <asp:GridView ID="GVUsers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="user_id" DataSourceID="sdsUsers" ForeColor="#333333" GridLines="None" Width="1158px" CssClass="rounded-grid">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
