@@ -837,7 +837,7 @@ BEGIN
 	
 		FROM 
 			recycling_collection rec inner join material mat on mat.material_id = rec.material_id GROUP BY 
-		  YEAR(collection_date), collection_date ,mat.material_name)  
+		  convert(nvarchar,DATENAME(MONTH,collection_date)) +'-'+ convert(nvarchar,YEAR(collection_date)) ,mat.material_name)  
 
 		union
 
