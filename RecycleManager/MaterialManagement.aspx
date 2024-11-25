@@ -69,7 +69,8 @@
                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                </asp:GridView>
-               <asp:SqlDataSource ID="sdsMaterials" runat="server" ConnectionString="<%$ ConnectionStrings:RecycleSystemConnection %>" DeleteCommand="DELETE FROM dbo.[material] WHERE [material_id] = @material_id" InsertCommand="INSERT INTO dbo.[material] ([material_id], [material_name], [material_description]) VALUES (@material_id, @material_name, @material_description)" SelectCommand="SELECT [material_id], [material_name], [material_description] FROM dbo.[material] ORDER BY [material_id] DESC" UpdateCommand="UPDATE  dbo.[material] SET [material_name] = @material_name, [material_description] = @material_description WHERE [material_id] = @material_id">
+               <asp:SqlDataSource ID="sdsMaterials" runat="server" ConnectionString="<%$ ConnectionStrings:RecycleSystemConnection %>" DeleteCommand="DELETE FROM dbo.[material] WHERE [material_id] = @material_id" InsertCommand="INSERT INTO dbo.[material] ([material_id], [material_name], [material_description]) VALUES (@material_id, @material_name, @material_description)" SelectCommand="SELECT [material_id], [material_name], [material_description] FROM dbo.[material] ORDER BY [material_id] DESC" UpdateCommand="UPDATE  dbo.[material] SET [material_name] = @material_name, [material_description] = @material_description WHERE [material_id] = @material_id"
+                   OnDeleted="sdsMaterials_Deleted">
                    <DeleteParameters>
                        <asp:Parameter Name="material_id" Type="Int32" />
                    </DeleteParameters>

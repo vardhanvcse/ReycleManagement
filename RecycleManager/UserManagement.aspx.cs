@@ -1,5 +1,6 @@
 ﻿using RecycleManager.helpers;
 using System;
+using System.Web.UI.WebControls;
 
 namespace RecycleManager
 {
@@ -16,5 +17,21 @@ namespace RecycleManager
         {
             Response.Redirect("SignOut.aspx");
         }
+      
+        private void ShowAlert(string message)
+        {
+            Page_Load(this, null);
+            string script = $"alert('{message}');";
+            ClientScript.RegisterStartupScript(this.GetType(), "Alert", script, true);
+        }
+
+        protected void sdsUsers_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                ShowAlert($"Error while deleting User Information : {e.Exception.Message}");
+                e.ExceptionHandled = true;
+            }
+        }       
     }
 }

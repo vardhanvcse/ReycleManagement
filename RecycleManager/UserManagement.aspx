@@ -71,7 +71,8 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-                  <asp:SqlDataSource ID="sdsUsers" runat="server" ConnectionString="<%$ ConnectionStrings:RecycleSystemConnection %>" DeleteCommand="DELETE FROM dbo.[user] WHERE [user_id] = @user_id" InsertCommand="INSERT INTO dbo.[user] ([user_name], [user_mail_id], [phone_num], [address]) VALUES (@user_name, @user_mail_id, @phone_num, @address)" SelectCommand="SELECT [user_id], [user_name], [user_mail_id], [phone_num], [address] FROM dbo.[user] ORDER BY [user_id] DESC" UpdateCommand="UPDATE  dbo.[user] SET [user_name] = @user_name, [user_mail_id] = @user_mail_id, [phone_num] = @phone_num, [address] = @address WHERE [user_id] = @user_id">
+                  <asp:SqlDataSource ID="sdsUsers" runat="server" ConnectionString="<%$ ConnectionStrings:RecycleSystemConnection %>" DeleteCommand="DELETE FROM dbo.[user] WHERE [user_id] = @user_id" InsertCommand="INSERT INTO dbo.[user] ([user_name], [user_mail_id], [phone_num], [address]) VALUES (@user_name, @user_mail_id, @phone_num, @address)" SelectCommand="SELECT [user_id], [user_name], [user_mail_id], [phone_num], [address] FROM dbo.[user] ORDER BY [user_id] DESC" UpdateCommand="UPDATE  dbo.[user] SET [user_name] = @user_name, [user_mail_id] = @user_mail_id, [phone_num] = @phone_num, [address] = @address WHERE [user_id] = @user_id"
+                       OnDeleted="sdsUsers_Deleted">
                       <DeleteParameters>
                           <asp:Parameter Name="user_id" Type="Int32" />
                       </DeleteParameters>

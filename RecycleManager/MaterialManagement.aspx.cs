@@ -17,5 +17,19 @@ namespace RecycleManager
         {
             Response.Redirect("SignOut.aspx");
         }
+        
+        private void ShowAlert(string message)
+        {
+            string script = $"alert('{message}');";
+            ClientScript.RegisterStartupScript(this.GetType(), "Alert", script, true);
+        }
+        protected void sdsMaterials_Deleted(object sender, System.Web.UI.WebControls.SqlDataSourceStatusEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                ShowAlert("Error while deleting Material Information : "+e.Exception.Message);
+                e.ExceptionHandled = true;
+            }
+        }
     }
 }
